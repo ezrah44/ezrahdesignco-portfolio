@@ -1,0 +1,66 @@
+{
+  "title": "New West Elite",
+  "category": "Identity",
+  "metaDescription": "New Westminster's first-ever AAU basketball program designed to make basketball more accessible to the community.",
+  "hero": {
+    "src": "assets/work/new-west-elite/subpage-cover.jpg",
+    "alt": "New West Elite"
+  },
+  "overview": "New Westminster’s first-ever AAU basketball program designed to make basketball more accessible to the community.",
+  "overviewNote": "",
+  "client": "New West Elite",
+  "tools": "Affinity Designer, Figma",
+  "industry": "Sports",
+  "timeframe": "3 months",
+  "gallery": [
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/new-west-elite/nwe-photo-2.jpg",
+          "alt": "New West Elite branded hoodie mockup"
+        },
+        {
+          "src": "assets/work/new-west-elite/before-and-after.jpg",
+          "alt": "Before and after logo redesign comparison"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/new-west-elite/image-2.jpg",
+          "alt": "New West Elite players in uniform huddled with their coach on the sideline"
+        }
+      ]
+    },
+    {
+      "type": "triple",
+      "images": [
+        {
+          "src": "assets/work/new-west-elite/image-1.jpg",
+          "alt": "New West Elite player shooting a free throw in a branded jersey"
+        },
+        {
+          "src": "assets/work/new-west-elite/image-4.jpg",
+          "alt": "New West Elite player dribbling downcourt in a game"
+        },
+        {
+          "src": "assets/work/new-west-elite/image-3.jpg",
+          "alt": "New West Elite player in the number 2 jersey standing on the court"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/new-west-elite/explanation.jpg",
+          "alt": "New West Elite brand explanation graphic",
+          "aspect": "7041 / 3765"
+        }
+      ]
+    }
+  ]
+}

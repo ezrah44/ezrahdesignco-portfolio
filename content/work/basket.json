@@ -1,0 +1,61 @@
+{
+  "title": "Basket",
+  "category": "Identity + UI",
+  "metaDescription": "A grocery app helping Canadian households cut food waste by scanning receipts and planning recipes around what's about to expire.",
+  "hero": {
+    "src": "assets/work/basket/subpage-cover.jpg",
+    "alt": "Basket"
+  },
+  "overview": "A grocery app helping Canadian households cut food waste by scanning receipts and planning recipes around what’s about to expire.",
+  "overviewNote": "",
+  "client": "Basket",
+  "tools": "Affinity, Figma",
+  "industry": "Sustainability",
+  "timeframe": "2 months",
+  "gallery": [
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/basket/mock-1.jpg",
+          "alt": "Basket app UI mockup"
+        },
+        {
+          "src": "assets/work/basket/mock-2.jpg",
+          "alt": "Basket app my basket screen mockup"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/basket/long-logo.jpg",
+          "alt": "Basket wordmark logo"
+        }
+      ]
+    },
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/basket/grid.jpg",
+          "alt": "Basket brand grid"
+        },
+        {
+          "src": "assets/work/basket/mock-3.jpg",
+          "alt": "Basket app UI mockup"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/basket/groceries.jpg",
+          "alt": "Basket logo mark over a grocery store produce section"
+        }
+      ]
+    }
+  ]
+}

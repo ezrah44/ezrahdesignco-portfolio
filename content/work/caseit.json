@@ -1,0 +1,52 @@
+{
+  "title": "CaseIT",
+  "category": "Print Design",
+  "metaDescription": "The world's premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.",
+  "hero": {
+    "src": "assets/work/caseit/subpage-cover.jpg",
+    "alt": "CaseIT"
+  },
+  "overview": "The world’s premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.",
+  "overviewNote": "",
+  "client": "CaseIT",
+  "tools": "Figma",
+  "industry": "MIS",
+  "timeframe": "3 months",
+  "gallery": [
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/caseit/mock-1.jpg",
+          "alt": "CaseIT case package mockup"
+        },
+        {
+          "src": "assets/work/caseit/mock-2.jpg",
+          "alt": "CaseIT case package mockup"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/caseit/long-1.jpg",
+          "alt": "CaseIT case package spread"
+        }
+      ]
+    },
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/caseit/mock-3.jpg",
+          "alt": "CaseIT case package page mockup"
+        },
+        {
+          "src": "assets/work/caseit/mock-4.jpg",
+          "alt": "CaseIT case package cover mockup"
+        }
+      ]
+    }
+  ]
+}

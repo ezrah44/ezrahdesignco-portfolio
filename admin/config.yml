@@ -1,0 +1,132 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+site_url: https://ezrahdesignco.ca
+display_url: https://ezrahdesignco.ca
+
+collections:
+  - name: "site"
+    label: "Homepage & Site Settings"
+    files:
+      - name: "site"
+        label: "Homepage Content"
+        file: "content/site.json"
+        fields:
+          - { label: "Hero Headline (HTML allowed, e.g. <br>)", name: "hero.headline", widget: "text" }
+
+          - label: "Intro Section"
+            name: "intro"
+            widget: "object"
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Body", name: "body", widget: "text" }
+              - { label: "Button Label", name: "ctaLabel", widget: "string" }
+
+          - label: "About Section"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Typing Animation Text", name: "typingText", widget: "string" }
+              - { label: "Paragraph 1", name: "paragraph1", widget: "text" }
+              - { label: "Paragraph 2", name: "paragraph2", widget: "text" }
+              - { label: "Photo", name: "photo", widget: "image" }
+              - { label: "Photo Alt Text", name: "photoAlt", widget: "string" }
+              - label: "Photo Carousel"
+                name: "carousel"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+                  - { label: "Zoom this image slightly", name: "zoom", widget: "boolean", required: false, default: false }
+              - { label: "Caption (HTML allowed, e.g. <br>)", name: "caption", widget: "text" }
+
+          - label: "Contact Section"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Heading (HTML allowed, e.g. <br>)", name: "heading", widget: "text" }
+              - { label: "Avatar Photo", name: "avatar", widget: "image" }
+              - { label: "Avatar Alt Text", name: "avatarAlt", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Instagram URL", name: "instagram", widget: "string" }
+              - { label: "LinkedIn URL", name: "linkedin", widget: "string" }
+
+          - label: "Featured Project Cards (top row)"
+            name: "featuredProjects"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Slug (must match a Case Study slug, not editable here)", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category Label", name: "category", widget: "string" }
+              - { label: "Visible", name: "visible", widget: "boolean", default: true }
+
+          - label: "Simple Project Cards (bottom row)"
+            name: "simpleProjects"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Slug (must match a Case Study slug, not editable here)", name: "slug", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Category Label", name: "category", widget: "string" }
+              - { label: "Visible", name: "visible", widget: "boolean", default: true }
+
+  - name: "work"
+    label: "Case Studies"
+    folder: "content/work"
+    create: false
+    delete: false
+    identifier_field: "title"
+    summary: "{{title}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category Label", name: "category", widget: "string" }
+      - { label: "Meta Description (for SEO / social sharing)", name: "metaDescription", widget: "text" }
+
+      - label: "Hero Image"
+        name: "hero"
+        widget: "object"
+        fields:
+          - { label: "Image", name: "src", widget: "image" }
+          - { label: "Alt Text", name: "alt", widget: "string" }
+
+      - { label: "Overview Text", name: "overview", widget: "text" }
+      - { label: "Overview Note (e.g. \"*Passion project*\", leave blank to hide)", name: "overviewNote", widget: "string", required: false }
+
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Tools Used", name: "tools", widget: "string" }
+      - { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Timeframe", name: "timeframe", widget: "string" }
+
+      - label: "Gallery Blocks"
+        name: "gallery"
+        widget: "list"
+        summary: "{{type}}"
+        fields:
+          - label: "Layout"
+            name: "type"
+            widget: "select"
+            options:
+              - { label: "Two square images side by side", value: "squares" }
+              - { label: "One full-width image", value: "full" }
+              - { label: "One full-width image (fit to its own aspect ratio)", value: "full-fit" }
+              - { label: "Two tall images side by side", value: "tall-pair" }
+              - { label: "Three images in a row", value: "triple" }
+              - { label: "Four images in a grid", value: "quad" }
+          - label: "Images"
+            name: "images"
+            widget: "list"
+            required: false
+            fields:
+              - { label: "Image", name: "src", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Aspect Ratio (only for full-fit, e.g. 5868 / 3654)", name: "aspect", widget: "string", required: false }

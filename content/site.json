@@ -1,0 +1,92 @@
+{
+  "hero": {
+    "headline": "Obsessed with design.<br class=\"break-medium\"> Passionate about getting it right."
+  },
+  "intro": {
+    "image": "assets/work/studio.jpg",
+    "imageAlt": "Ezrah working at his laptop in a home studio",
+    "heading": "I’ve been designing since before I knew what to call it.",
+    "body": "Graphics, full brands, and everything in between. My friends just call me the “design guy”.",
+    "ctaLabel": "More About Me"
+  },
+  "about": {
+    "heading": "A little bit about the design guy.",
+    "typingText": "Alte Haas Grotesk",
+    "paragraph1": "I started by pirating design software off my high school computer. The rest is history.",
+    "paragraph2": "Since then, design has never really been something I do. It’s something I can’t stop doing. Whether it’s a brand identity, graphics for a sports team, a vibe-coded tide tracker for my parents’ cabin, or just a fun passion project to teach myself something new, I care about it all the same.",
+    "photo": "assets/about/desk.jpg",
+    "photoAlt": "Ezrah sketching in a notebook next to his laptop",
+    "carousel": [
+      {
+        "src": "assets/about/photo-1.jpeg",
+        "alt": "Ezrah riding his road bike down a tree-lined street"
+      },
+      {
+        "src": "assets/about/photo-2.jpg",
+        "alt": "Ezrah playing lacrosse in a Simon Fraser jersey"
+      },
+      {
+        "src": "assets/about/photo-3.jpeg",
+        "alt": "Ezrah smiling after finishing the Vancouver Sun Run"
+      },
+      {
+        "src": "assets/about/photo-4.jpeg",
+        "alt": "Ezrah and a friend taking a selfie on a road bike ride"
+      },
+      {
+        "src": "assets/about/photo-5.jpeg",
+        "alt": "Ezrah and friends playing Catan on a patio in the evening",
+        "zoom": true
+      },
+      {
+        "src": "assets/about/photo-6.jpg",
+        "alt": "Ezrah and his slo-pitch team posing on the diamond in matching pink shirts"
+      }
+    ],
+    "caption": "Outside of design, you’ll find me on my bike, playing Catan, waiting for Friday night slo-pitch,<br class=\"break-tablet\"> or being extremely amateur at golf."
+  },
+  "contact": {
+    "heading": "Let’s make<br>something great!",
+    "avatar": "assets/contact/desk-1.jpg",
+    "avatarAlt": "Ezrah Glanville",
+    "name": "Ezrah Glanville",
+    "role": "Designer, EDCo.",
+    "email": "ezrahdesignco@gmail.com",
+    "instagram": "https://www.instagram.com/ezrahdesignco/",
+    "linkedin": "https://www.linkedin.com/in/ezrahglanville/"
+  },
+  "featuredProjects": [
+    {
+      "slug": "kirks-bike-shop",
+      "title": "Kirk’s Bike Shop",
+      "category": "Identity",
+      "visible": true
+    },
+    {
+      "slug": "new-west-elite",
+      "title": "New West Elite",
+      "category": "Identity",
+      "visible": true
+    }
+  ],
+  "simpleProjects": [
+    {
+      "slug": "basket",
+      "title": "Basket",
+      "category": "Identity + UI",
+      "visible": true
+    },
+    {
+      "slug": "caseit",
+      "title": "CaseIt",
+      "category": "Print Design",
+      "visible": true
+    },
+    {
+      "slug": "abwiches",
+      "title": "Abwiches",
+      "category": "Identity",
+      "visible": true
+    }
+  ]
+}

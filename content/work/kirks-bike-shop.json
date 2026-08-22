@@ -1,0 +1,62 @@
+{
+  "title": "Kirk’s Bike Shop",
+  "category": "Identity",
+  "metaDescription": "A Vancouver bike shop that specializes in road bikes, repairs, and gettin' those wheels rolling.",
+  "hero": {
+    "src": "assets/work/kirks/subpage-cover.jpg",
+    "alt": "Kirk’s Bike Shop"
+  },
+  "overview": "A Vancouver bike shop that specializes in road bikes, repairs, and gettin’ those wheels rolling.",
+  "overviewNote": "*Passion project*",
+  "client": "Kirk’s Bike Shop",
+  "tools": "Affinity Designer, Figma",
+  "industry": "Retail",
+  "timeframe": "1 month",
+  "gallery": [
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/kirks/k.jpg",
+          "alt": "K icon mark"
+        },
+        {
+          "src": "assets/work/kirks/cup.jpg",
+          "alt": "Branded enamel mug mockup"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/kirks/store-sign.jpg",
+          "alt": "A sandwich board reading “We’re open!” outside Kirk’s Bike Shop"
+        }
+      ]
+    },
+    {
+      "type": "tall-pair",
+      "images": [
+        {
+          "src": "assets/work/kirks/ad-1.jpg",
+          "alt": "“Let’s take the scenic route” ad"
+        },
+        {
+          "src": "assets/work/kirks/ad-2.jpg",
+          "alt": "“POV: Kirk called” ad"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/kirks/ad-3.jpg",
+          "alt": "“It’s not that steep” ad",
+          "aspect": "5868 / 3654"
+        }
+      ]
+    }
+  ]
+}

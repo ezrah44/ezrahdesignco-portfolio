@@ -29,8 +29,9 @@
 
   <link rel="stylesheet" href="../../styles.css" />
   <script src="../../site.js"></script>
+  <script src="../../cms-loader.js" defer></script>
 </head>
-<body>
+<body class="is-project-detail" data-project-slug="caseit">
 
   <header class="nav">
     <a href="../../index.html" class="nav__logo">
@@ -68,17 +69,18 @@
       </a>
 
       <div class="project-detail__hero">
-        <img src="../../assets/work/caseit/subpage-cover.jpg" alt="CaseIT" />
+        <img src="../../assets/work/caseit/subpage-cover.jpg" alt="CaseIT" id="cms-hero-img" />
       </div>
 
       <div class="project-detail__title-row">
-        <h1 class="section-heading project-detail__title">CaseIT</h1>
-        <span class="project-card-category">Print Design</span>
+        <h1 class="section-heading project-detail__title" id="cms-title">CaseIT</h1>
+        <span class="project-card-category" id="cms-category">Print Design</span>
       </div>
 
       <div class="project-detail__section">
         <h2 class="sr-only">Overview</h2>
-        <p class="project-detail__overview-text">The world&rsquo;s premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.</p>
+        <p class="project-detail__overview-text" id="cms-overview">The world&rsquo;s premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.</p>
+        <p class="project-detail__overview-note" id="cms-overview-note" style="display:none;"></p>
       </div>
 
       <div class="project-detail__section">
@@ -86,25 +88,25 @@
         <div class="project-detail__grid">
           <div class="project-detail__field">
             <p class="project-detail__field-label">Client</p>
-            <p class="project-detail__field-value">CaseIT</p>
+            <p class="project-detail__field-value" id="cms-field-client">CaseIT</p>
           </div>
           <div class="project-detail__field">
             <p class="project-detail__field-label">Tools Used</p>
-            <p class="project-detail__field-value">Figma</p>
+            <p class="project-detail__field-value" id="cms-field-tools">Figma</p>
           </div>
           <div class="project-detail__field">
             <p class="project-detail__field-label">Industry</p>
-            <p class="project-detail__field-value">MIS</p>
+            <p class="project-detail__field-value" id="cms-field-industry">MIS</p>
           </div>
           <div class="project-detail__field">
             <p class="project-detail__field-label">Timeframe</p>
-            <p class="project-detail__field-value">3 months</p>
+            <p class="project-detail__field-value" id="cms-field-timeframe">3 months</p>
           </div>
         </div>
       </div>
 
       <h2 class="sr-only">Gallery</h2>
-      <div class="project-detail__media">
+      <div class="project-detail__media" id="cms-gallery">
         <div class="project-detail__media-squares">
           <img src="../../assets/work/caseit/mock-1.jpg" alt="CaseIT case package mockup" />
           <img src="../../assets/work/caseit/mock-2.jpg" alt="CaseIT case package mockup" />

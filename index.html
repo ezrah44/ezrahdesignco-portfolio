@@ -30,6 +30,8 @@
 
   <link rel="stylesheet" href="styles.css" />
   <script src="site.js"></script>
+  <script src="cms-loader.js" defer></script>
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -61,18 +63,18 @@
 
   <main>
     <section class="hero container" id="hero">
-      <h1 class="hero__headline">Obsessed with design.<br class="break-medium"> Passionate about getting it right.</h1>
+      <h1 class="hero__headline" id="cms-hero-headline">Obsessed with design.<br class="break-medium"> Passionate about getting it right.</h1>
     </section>
 
     <section class="gallery gallery--featured container" id="work">
       <h2 class="sr-only">Work</h2>
-      <a href="work/kirks-bike-shop/" class="project-card project-card--featured project-card--kirks">
+      <a href="work/kirks-bike-shop/" class="project-card project-card--featured project-card--kirks" id="cms-card-kirks-bike-shop">
         <div class="project-card-overlay">
           <h3 class="project-card-title">Kirk&rsquo;s Bike Shop</h3>
           <span class="project-card-category">Identity</span>
         </div>
       </a>
-      <a href="work/new-west-elite/" class="project-card project-card--featured project-card--nwe">
+      <a href="work/new-west-elite/" class="project-card project-card--featured project-card--nwe" id="cms-card-new-west-elite">
         <div class="project-card-overlay">
           <h3 class="project-card-title">New West Elite</h3>
           <span class="project-card-category">Identity</span>
@@ -82,29 +84,29 @@
 
     <section class="intro container">
       <div class="intro__image">
-        <img src="assets/work/studio.jpg" alt="Ezrah working at his laptop in a home studio" />
+        <img src="assets/work/studio.jpg" alt="Ezrah working at his laptop in a home studio" id="cms-intro-image" />
       </div>
       <div class="intro__content">
-        <h2 class="intro__heading">I&rsquo;ve been designing since before I knew what to call it.</h2>
-        <p class="intro__body">Graphics, full brands, and everything in between. My friends just call me the &ldquo;design guy&rdquo;.</p>
-        <a href="#about" class="btn btn--fill">More About Me</a>
+        <h2 class="intro__heading" id="cms-intro-heading">I&rsquo;ve been designing since before I knew what to call it.</h2>
+        <p class="intro__body" id="cms-intro-body">Graphics, full brands, and everything in between. My friends just call me the &ldquo;design guy&rdquo;.</p>
+        <a href="#about" class="btn btn--fill" id="cms-intro-cta">More About Me</a>
       </div>
     </section>
 
     <section class="gallery gallery--simple container">
-      <a href="work/basket/" class="project-card project-card--simple project-card--basket">
+      <a href="work/basket/" class="project-card project-card--simple project-card--basket" id="cms-card-basket">
         <div class="project-card-overlay">
           <h3 class="project-card-title">Basket</h3>
           <span class="project-card-category">Identity + UI</span>
         </div>
       </a>
-      <a href="work/caseit/" class="project-card project-card--simple project-card--caseit">
+      <a href="work/caseit/" class="project-card project-card--simple project-card--caseit" id="cms-card-caseit">
         <div class="project-card-overlay">
           <h3 class="project-card-title">CaseIt</h3>
           <span class="project-card-category">Print Design</span>
         </div>
       </a>
-      <a href="work/abwiches/" class="project-card project-card--simple project-card--abwiches">
+      <a href="work/abwiches/" class="project-card project-card--simple project-card--abwiches" id="cms-card-abwiches">
         <div class="project-card-overlay">
           <h3 class="project-card-title">Abwiches</h3>
           <span class="project-card-category">Identity</span>
@@ -113,7 +115,7 @@
     </section>
 
     <section class="about container" id="about">
-      <h2 class="section-heading">A little bit about the design guy.</h2>
+      <h2 class="section-heading" id="cms-about-heading">A little bit about the design guy.</h2>
 
       <div class="about__body">
         <div class="about__cards">
@@ -147,15 +149,15 @@
 
         <div class="about__main">
           <div class="about__paragraph-wrap">
-            <p class="about__paragraph">I started by pirating design software off my high school computer. The rest is history.</p>
-            <p class="about__paragraph">Since then, design has never really been something I do. It&rsquo;s something I can&rsquo;t stop doing. Whether it&rsquo;s a brand identity, graphics for a sports team, a vibe-coded tide tracker for my parents&rsquo; cabin, or just a fun passion project to teach myself something new, I care about it all the same.</p>
+            <p class="about__paragraph" id="cms-about-p1">I started by pirating design software off my high school computer. The rest is history.</p>
+            <p class="about__paragraph" id="cms-about-p2">Since then, design has never really been something I do. It&rsquo;s something I can&rsquo;t stop doing. Whether it&rsquo;s a brand identity, graphics for a sports team, a vibe-coded tide tracker for my parents&rsquo; cabin, or just a fun passion project to teach myself something new, I care about it all the same.</p>
           </div>
           <div class="about__photo">
-            <img src="assets/about/desk.jpg" alt="Ezrah sketching in a notebook next to his laptop" />
+            <img src="assets/about/desk.jpg" alt="Ezrah sketching in a notebook next to his laptop" id="cms-about-photo" />
           </div>
           <div class="about__carousel">
             <div class="about__carousel-clip">
-              <div class="about__carousel-track">
+              <div class="about__carousel-track" id="cms-carousel-track">
                 <div class="about__carousel-string" aria-hidden="true"></div>
                 <div class="about__polaroid"><img src="assets/about/photo-1.jpeg" alt="Ezrah riding his road bike down a tree-lined street" /></div>
                 <div class="about__polaroid"><img src="assets/about/photo-2.jpg" alt="Ezrah playing lacrosse in a Simon Fraser jersey" /></div>
@@ -174,27 +176,27 @@
           </div>
         </div>
 
-        <p class="about__caption">Outside of design, you&rsquo;ll find me on my bike, playing Catan, waiting for Friday night slo-pitch,<br class="break-tablet"> or being extremely amateur at golf.</p>
+        <p class="about__caption" id="cms-about-caption">Outside of design, you&rsquo;ll find me on my bike, playing Catan, waiting for Friday night slo-pitch,<br class="break-tablet"> or being extremely amateur at golf.</p>
       </div>
     </section>
 
     <section class="contact" id="contact">
-      <h2 class="section-heading contact__heading">Let&rsquo;s make<br>something great!</h2>
+      <h2 class="section-heading contact__heading" id="cms-contact-heading">Let&rsquo;s make<br>something great!</h2>
 
       <div class="contact__person">
         <div class="contact__avatar">
-          <img src="assets/contact/desk-1.jpg" alt="Ezrah Glanville" />
+          <img src="assets/contact/desk-1.jpg" alt="Ezrah Glanville" id="cms-contact-avatar" />
         </div>
         <div class="contact__meta">
-          <p class="contact__name">Ezrah Glanville</p>
-          <p class="contact__role">Designer, EDCo.</p>
+          <p class="contact__name" id="cms-contact-name">Ezrah Glanville</p>
+          <p class="contact__role" id="cms-contact-role">Designer, EDCo.</p>
         </div>
       </div>
 
       <div class="contact__links">
-        <a href="mailto:ezrahdesignco@gmail.com" class="contact__link contact__link--email">Email Me</a>
-        <a href="https://www.instagram.com/ezrahdesignco/" class="contact__link contact__link--instagram" target="_blank" rel="noopener">Instagram</a>
-        <a href="https://www.linkedin.com/in/ezrahglanville/" class="contact__link contact__link--linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:ezrahdesignco@gmail.com" class="contact__link contact__link--email" id="cms-contact-email">Email Me</a>
+        <a href="https://www.instagram.com/ezrahdesignco/" class="contact__link contact__link--instagram" target="_blank" rel="noopener" id="cms-contact-instagram">Instagram</a>
+        <a href="https://www.linkedin.com/in/ezrahglanville/" class="contact__link contact__link--linkedin" target="_blank" rel="noopener" id="cms-contact-linkedin">LinkedIn</a>
       </div>
     </section>
 
@@ -298,6 +300,20 @@
 
       setTimeout(tick, typeDelay);
     })();
+  </script>
+
+  <script>
+    // Lets a "confirm/invite" link from a Netlify Identity email open the
+    // login widget automatically instead of landing on a blank page.
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>

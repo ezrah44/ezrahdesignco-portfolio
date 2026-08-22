@@ -1,0 +1,78 @@
+{
+  "title": "Abwiches",
+  "category": "Identity",
+  "metaDescription": "A rustic, authentic, and delicious sandwich shop serving up the best flavour combinations you can think of.",
+  "hero": {
+    "src": "assets/work/abwiches/subpage-cover.jpg",
+    "alt": "Abwiches"
+  },
+  "overview": "A rustic, authentic, and delicious sandwich shop serving up the best flavour combinations you can think of.",
+  "overviewNote": "*Passion project*",
+  "client": "Abwiches",
+  "tools": "Affinity Designer, Figma",
+  "industry": "Food",
+  "timeframe": "1 month",
+  "gallery": [
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/abwiches/long-logo.jpg",
+          "alt": "Abwiches wordmark logo"
+        }
+      ]
+    },
+    {
+      "type": "squares",
+      "images": [
+        {
+          "src": "assets/work/abwiches/wink.jpg",
+          "alt": "Abwiches mascot winking"
+        },
+        {
+          "src": "assets/work/abwiches/bread.jpg",
+          "alt": "Abwiches bread branding"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/abwiches/long-tomatoes.jpg",
+          "alt": "Abwiches mascot mark over sliced tomatoes"
+        }
+      ]
+    },
+    {
+      "type": "quad",
+      "images": [
+        {
+          "src": "assets/work/abwiches/tomato-icon.jpg",
+          "alt": "Tomato icon"
+        },
+        {
+          "src": "assets/work/abwiches/bread-icon.jpg",
+          "alt": "Bread icon"
+        },
+        {
+          "src": "assets/work/abwiches/cheese-icon.jpg",
+          "alt": "Cheese icon"
+        },
+        {
+          "src": "assets/work/abwiches/lettuce-icon.jpg",
+          "alt": "Lettuce icon"
+        }
+      ]
+    },
+    {
+      "type": "full",
+      "images": [
+        {
+          "src": "assets/work/abwiches/long-cheese.jpg",
+          "alt": "Abwiches branding over sliced cheese"
+        }
+      ]
+    }
+  ]
+}
