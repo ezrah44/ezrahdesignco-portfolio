@@ -1,0 +1,1944 @@
+/* Visually hidden but still readable by screen readers and search engines.
+   Used for section headings that give the page a proper heading structure
+   without introducing a visible heading where the design doesn't call for one. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  src: url("fonts/AlteHaasGroteskRegular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Alte Haas Grotesk";
+  src: url("fonts/AlteHaasGroteskBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --green-fill: #35A45B;
+  --green-outline: #B2EFC7;
+  --body-grey: #5D5D5D;
+  --border-grey: #E3E3E3;
+  --placeholder-grey: #F4F4F4;
+  --black: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Visible only for keyboard navigation (:focus-visible skips mouse clicks),
+   so it doesn't change anything for mouse/touch users — just gives keyboard
+   users a clear, on-brand indicator of where they are on the page. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--green-fill);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "SF Pro Text", "SF Pro Display", system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--black);
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*
+  Static breakpoint system — three fixed layouts, not a fluid scale.
+  Each container is a fixed pixel width matching the Figma frame
+  (1280 / 768 / 360) and centered. The layout snaps between the
+  three at the thresholds below; nothing reflows in between.
+
+    Large  (desktop): viewport >= 1280px  → 1280px canvas
+    Medium (tablet):  768px <= viewport < 1280px → 768px canvas
+    Small  (mobile):  viewport < 768px    → 360px canvas
+
+  Each tier's threshold is the tier's own canvas width — the layout
+  switches down the instant the current canvas would start clipping,
+  not before.
+*/
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+/* ---------- Nav ---------- */
+
+/*
+  The nav bar is the one exception to the static breakpoint system —
+  it's fluid, scaling continuously with the viewport instead of
+  snapping between fixed canvases. Everything below it stays locked
+  to the three static layouts.
+*/
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 119px;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 24px clamp(20px, 4vw, 50px);
+  background: #fff;
+  position: relative;
+  z-index: 15;
+  isolation: isolate;
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 16;
+}
+
+.nav__logo-img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+
+.pill {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--border-grey);
+  border-radius: 999px;
+}
+
+.nav__links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav__toggle-wrap {
+  display: none;
+}
+
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-grey);
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--black);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav__toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav__mobile-menu {
+  display: none;
+}
+
+.nav__backdrop {
+  display: none;
+}
+
+.pill {
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.pill:hover {
+  border-color: var(--green-fill);
+  background-color: var(--green-outline);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  padding: 40px 50px 0;
+}
+
+.hero__headline {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.break-medium {
+  display: none;
+}
+
+.break-tablet {
+  display: none;
+}
+
+/* ---------- Intro ---------- */
+
+.intro {
+  padding: 19px 50px 0;
+  display: flex;
+  align-items: center;
+  gap: 48px;
+}
+
+.intro__image {
+  flex: 0 0 729px;
+  height: 349px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.intro__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+  display: block;
+}
+
+.intro__content {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.intro__heading {
+  margin: 0 0 12px;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.intro__body {
+  margin: 0 0 28px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--body-grey);
+  max-width: 360px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 59px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn--fill {
+  background-color: var(--green-fill);
+  border: 1px solid var(--green-outline);
+  color: #fff;
+}
+
+.btn--fill:hover {
+  background-color: #2c8a4c;
+  border-color: #35A45B;
+}
+
+/* ---------- Project Card (shared: hero feature + gallery) ---------- */
+
+.project-card {
+  position: relative;
+  display: block;
+  background-color: var(--placeholder-grey);
+  /*
+    All 5 project cover images were re-exported at 2x their original
+    size (Aug 2026), giving enough resolution headroom for retina
+    screens at the full zoom again — restored from a temporary 108%
+    used while the old, too-small covers were still in place.
+  */
+  background-size: 120%;
+  /*
+    --rest-y defaults to dead-center (50%). Cards whose image has a
+    centered logo/subject that needs to clear the overlay pill (see
+    .project-card--nwe below) override this per breakpoint instead,
+    so the focal point centers on the *visible* area above the
+    overlay rather than the full card height. The hover-follow script
+    reads this same variable, so panning stays centered around
+    whatever resting point is set here.
+  */
+  --rest-y: 50%;
+  background-position: 50% var(--rest-y);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: background-position 0.15s ease-out;
+}
+
+.project-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-card__img {
+  transform: scale(1.04);
+}
+
+/* Shared overlay: title + category pill (used to be a "View" button) */
+
+.project-card-overlay {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: background-color 0.2s ease;
+}
+
+.project-card-title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  color: #111;
+}
+
+/*
+  Category pill now lives where the "View" button used to sit, in
+  place of it. Outline-only, in the same dark ink as the title
+  (#111) but faded rather than solid black, so it reads as a
+  secondary/quiet label sitting on the light overlay. Hover doesn't
+  swap its color — it just eases the fill to a slightly higher
+  opacity, a subtler "this is clickable" cue than the old green
+  flash.
+*/
+.project-card-category {
+  flex-shrink: 0;
+  padding: 9px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(17, 17, 17, 0.55);
+  background: rgba(17, 17, 17, 0.05);
+  color: rgba(17, 17, 17, 0.7);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.project-card:hover .project-card-category {
+  background-color: rgba(17, 17, 17, 0.12);
+}
+
+/* ---------- Gallery ---------- */
+
+.gallery {
+  display: flex;
+  gap: 19px;
+  padding: 19px 50px 0;
+}
+
+.gallery--featured .project-card,
+.gallery--simple .project-card {
+  flex: 1 0 0;
+  height: 349px;
+}
+
+/*
+  Kirk's Bike Shop swaps in a cover shot cropped specifically for
+  each breakpoint's card box (see the medium/small overrides below)
+  instead of relying on one image stretched by background-size:120%
+  across every aspect ratio.
+*/
+.project-card--kirks {
+  background-image: url('assets/work/kirks/kirks-1.jpg');
+}
+
+/*
+  The logo in this cover is centered in the source image, but the
+  overlay pill covers the bottom 63px (53px pill + 10px gap) of every
+  card, so a plain 50% would center it on the full card height and
+  it'd read as sitting low in the visible area above the pill. This
+  --rest-y shifts the resting point up to center it specifically in
+  that visible area instead: 50% - (63px / 2) / cardHeight, recomputed
+  per breakpoint below since card heights change.
+*/
+.project-card--nwe {
+  background-image: url('assets/work/new-west-elite/nwe-1.jpg');
+  --rest-y: 41%; /* 349px featured card at the large breakpoint */
+}
+
+.project-card--basket {
+  background-image: url('assets/work/basket/basket-1.jpg');
+  --rest-y: 41%; /* 349px simple card at the large breakpoint */
+}
+
+.project-card--caseit {
+  background-image: url('assets/work/caseit/caseit-1.jpg');
+  --rest-y: 41%; /* 349px simple card at the large breakpoint */
+}
+
+.project-card--abwiches {
+  background-image: url('assets/work/abwiches/abwiches-1.jpg');
+  --rest-y: 41%; /* 349px simple card at the large breakpoint */
+}
+
+/* ---------- About ---------- */
+/*
+  Shared section-heading style — same scale as .intro__heading
+  (30 / 26 / 22 across the three tiers).
+*/
+
+.section-heading {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  color: var(--black);
+}
+
+.about {
+  padding: 60px 50px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: 432px 1fr;
+  grid-template-areas:
+    "cards main"
+    "caption caption";
+  column-gap: 19px;
+  row-gap: 32px;
+}
+
+.about__cards {
+  grid-area: cards;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.about__card {
+  display: flex;
+  flex-direction: column;
+  /*
+    All three cards now share the same 19px padding and 19px
+    tag-to-media gap, sized around Spotify's fixed 152px embed
+    height (the one size none of the three media types can flex
+    around):
+      2 (border) + 2×19 (padding) + 24 (tag) + 19 (gap) + 152 (media) = 235px
+  */
+  gap: 19px;
+  padding: 19px;
+  background: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  /*
+    Cards total (3 × 235 + 2×19 gaps) = 743px, which the content
+    column must also reach — see .about__photo for how that's split.
+  */
+  height: 235px;
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 5px 10px;
+  background-color: #d4f3df;
+  border-radius: 42px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.about__card-media {
+  width: 100%;
+  height: 152px;
+  background-color: #414141;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.about__card-media--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/*
+  Silent looping background video, no UI, no interaction. A native
+  <video> (unlike a YouTube iframe) has zero built-in chrome when the
+  controls attribute is simply omitted, so no overlay-blocking tricks
+  are needed here.
+*/
+.about__card-media--video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.about__card-media--spotify {
+  border: 0;
+  display: block;
+}
+
+.about__card-media--typing {
+  width: 100%;
+  height: 100%;
+  background-color: var(--green-fill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 16px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.typing-text {
+  font-family: "Alte Haas Grotesk", -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  color: #fff;
+  white-space: nowrap;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.typing-text::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  margin-left: 2px;
+  background: #fff;
+  vertical-align: -0.15em;
+  animation: typing-caret 0.8s step-end infinite;
+}
+
+@keyframes typing-caret {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.about__main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  /*
+    Without this, a grid item's default min-width:auto lets a wide
+    descendant (the carousel track, holding all 12 images at their
+    natural width) force this 1fr column to grow past its intended
+    700px, blowing out the whole section's width.
+  */
+  min-width: 0;
+}
+
+.about__paragraph-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.about__paragraph {
+  margin: 0;
+  max-width: 629px;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--body-grey);
+}
+
+.about__photo {
+  /*
+    The cards column is a fixed 743px (3 × 235 + 2×19), and grid's
+    default align-items:stretch pads .about__main out to match — but
+    since the paragraph above now flows at its natural (variable)
+    height, nothing was left to absorb the leftover space, so it was
+    collecting as dead air below the carousel instead of keeping the
+    carousel flush with the bottom of the cards column. flex-grow
+    here soaks up whatever's left, 305px is just the floor/basis.
+  */
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 305px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.about__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/*
+  Auto-scrolling photo carousel. The track holds the 6 photos twice
+  back-to-back and animates exactly -50% (one full set width), so
+  the loop is seamless. The outer element is masked to fade to
+  transparent (i.e. to the page's white background) on both edges.
+*/
+.about__carousel {
+  /*
+    Purely a layout box now — no overflow/mask of its own. Its height
+    is what the grid alignment math (743px cards column, soaked up by
+    .about__photo's flex-grow) is built on, so it has to stay fixed
+    at exactly this size regardless of how the visuals inside bleed.
+  */
+  position: relative;
+  width: 100%;
+  /*
+    Taller than the 168px photos themselves, but almost all of that
+    extra room sits above them (see .about__polaroid's margin) — just
+    enough below to keep sway from clipping, so the photos' bottom
+    edge still lands close to flush with the bottom of the cards
+    column, matching .about__main's grid alignment.
+  */
+  height: 185px;
+}
+
+/*
+  The actual clipping/masking layer. It's absolutely positioned so
+  it can extend 10px below .about__carousel's own box — room for the
+  polaroids' box-shadow to bleed into — without that extra space
+  affecting .about__carousel's height (and therefore the grid
+  alignment above). overflow-x and overflow-y are NOT split here on
+  purpose: setting one axis to hidden and the other to visible on the
+  same element doesn't actually leave the second one visible — the
+  spec computes it to auto instead, which still clips. Using a single
+  `overflow: hidden` on this taller, purely-visual box sidesteps that
+  and gives real, unclipped vertical bleed.
+*/
+.about__carousel-clip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: -10px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black 60px,
+    black calc(100% - 60px),
+    transparent 100%
+  );
+}
+
+.about__carousel-track {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 19px;
+  height: 185px;
+  width: max-content;
+  animation: about-carousel-scroll 32s linear infinite;
+}
+
+/*
+  The string the polaroids hang from. Sits behind the photos
+  (z-index 0, photos are z-index 1) at one-eighth of the photo's
+  own height down from its top edge, so each polaroid's top edge
+  covers the string and it only reads as visible in the gaps
+  between photos. Offset by the same 12px top margin as the photos.
+*/
+.about__carousel-string {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 33px; /* 12px top margin + ~1/8 of the 168px photo height */
+  height: 2px;
+  background: #8a7a67;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.about__polaroid {
+  /*
+    Sized so exactly 4 photos fill the 729px content column with the
+    standard 19px gap between them, and no more: (729 - 3×19) / 4.
+    The other 2 (of the 6) only ever exist off in the masked-out
+    edges as the track scrolls — the page never grows to fit them.
+    Height now matches the width (square-ish, like a real polaroid)
+    instead of the old tall portrait shape.
+
+    The margin (not align-items) is what creates the sway clearance
+    here — mostly on top, barely any on the bottom — so the photo's
+    bottom edge sits almost flush with the carousel's own bottom
+    edge, keeping it aligned with the bottom of the cards column.
+  */
+  position: relative;
+  z-index: 1;
+  height: 168px;
+  width: 168px;
+  margin: 12px 0 5px;
+  flex: none;
+  box-sizing: border-box;
+  background: #fdfdfb;
+  padding: 8px 8px 20px;
+  border-radius: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transform-origin: top center;
+  animation-name: about-polaroid-sway;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.about__polaroid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  display: block;
+}
+
+/*
+  The Catan photo (c5) has beer cans near its left/right edges once
+  cropped down to this box's tall narrow aspect — bias the crop
+  toward the board/players in the center-left of the frame instead.
+*/
+.about__carousel-img--zoom {
+  object-position: 30% 50%;
+}
+
+@keyframes about-carousel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/*
+  Gentle wind-sway: rotate a few degrees either side of upright,
+  pivoting from the top edge (transform-origin above). Each photo
+  gets its own duration/delay below so they drift out of phase
+  instead of swaying in unison — the negative delays start each
+  one mid-cycle immediately on load rather than in sync. The two
+  copies of each photo (real + aria-hidden loop duplicate) share
+  the same timing so the swing doesn't jump when the loop wraps.
+*/
+@keyframes about-polaroid-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+.about__carousel-track .about__polaroid:nth-child(2),
+.about__carousel-track .about__polaroid:nth-child(8) {
+  animation-duration: 4.2s;
+  animation-delay: -0.4s;
+}
+
+.about__carousel-track .about__polaroid:nth-child(3),
+.about__carousel-track .about__polaroid:nth-child(9) {
+  animation-duration: 5.1s;
+  animation-delay: -2.1s;
+}
+
+.about__carousel-track .about__polaroid:nth-child(4),
+.about__carousel-track .about__polaroid:nth-child(10) {
+  animation-duration: 3.8s;
+  animation-delay: -1.2s;
+}
+
+.about__carousel-track .about__polaroid:nth-child(5),
+.about__carousel-track .about__polaroid:nth-child(11) {
+  animation-duration: 4.9s;
+  animation-delay: -3s;
+}
+
+.about__carousel-track .about__polaroid:nth-child(6),
+.about__carousel-track .about__polaroid:nth-child(12) {
+  animation-duration: 4.4s;
+  animation-delay: -0.9s;
+}
+
+.about__carousel-track .about__polaroid:nth-child(7),
+.about__carousel-track .about__polaroid:nth-child(13) {
+  animation-duration: 4.6s;
+  animation-delay: -1.8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about__polaroid {
+    animation: none;
+  }
+
+  .about__carousel-track {
+    animation: none;
+  }
+}
+
+.about__caption {
+  grid-area: caption;
+  margin: 0;
+  max-width: none;
+  white-space: nowrap;
+  margin-inline: auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  color: var(--body-grey);
+}
+
+/* ---------- Contact ---------- */
+
+.contact {
+  /*
+    Overrides .container's fixed 1280px width so this box sits inset
+    the same 50px each side that every other content row (gallery
+    items, about cards, etc.) is inset from the container edge —
+    1280 - 2×50 = 1180, centered the same way .container centers.
+  */
+  width: 1180px;
+  margin: 0 auto 60px;
+  padding: 60px 50px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--placeholder-grey);
+  border-radius: 20px;
+}
+
+.contact__heading {
+  text-align: center;
+}
+
+.contact__person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.contact__avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--placeholder-grey);
+  overflow: hidden;
+  flex: none;
+}
+
+.contact__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.contact__meta {
+  text-align: left;
+}
+
+.contact__name {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--black);
+}
+
+.contact__role {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  color: var(--body-grey);
+}
+
+.contact__links {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.contact__link {
+  padding: 9px 17px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact__link--email {
+  background-color: var(--green-fill);
+  border: 1px solid var(--green-outline);
+}
+
+.contact__link--email:hover {
+  background-color: #2c8a4c;
+  border-color: #35A45B;
+}
+
+.contact__link--instagram {
+  background-color: #e1306c;
+  border: 1px solid #f7b8d0;
+}
+
+.contact__link--instagram:hover {
+  background-color: #c22a5e;
+  border-color: #e1306c;
+}
+
+.contact__link--linkedin {
+  background-color: #0a66c2;
+  border: 1px solid #a9cdec;
+}
+
+.contact__link--linkedin:hover {
+  background-color: #084e94;
+  border-color: #0a66c2;
+}
+
+/* ================= MEDIUM — 768px canvas ================= */
+
+@media (min-width: 768px) and (max-width: 1279.98px) {
+  .contact {
+    width: 668px;
+  }
+
+  .container {
+    width: 768px;
+  }
+
+  .hero__headline {
+    font-size: 32px;
+    white-space: normal;
+    line-height: 1;
+  }
+
+  .break-medium {
+    display: block;
+  }
+
+  .break-tablet {
+    display: block;
+  }
+
+  .intro {
+    gap: 24px;
+    padding: 19px 50px 0;
+  }
+
+  .intro__heading {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .intro__body {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .intro__image {
+    flex-basis: 323px;
+    height: 349px;
+  }
+
+  .gallery {
+    gap: 19px;
+    padding: 19px 50px 0;
+  }
+
+  .gallery--featured .project-card,
+  .gallery--simple .project-card {
+    height: 240px;
+  }
+
+  .project-card--kirks {
+    background-image: url('assets/work/kirks/kirks-2.jpg');
+  }
+
+  .project-card--nwe {
+    background-image: url('assets/work/new-west-elite/nwe-2.jpg');
+    --rest-y: 37%; /* 240px featured card at the medium breakpoint */
+  }
+
+  .project-card--basket {
+    background-image: url('assets/work/basket/basket-2.jpg');
+    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
+  }
+
+  .project-card--caseit {
+    background-image: url('assets/work/caseit/caseit-2.jpg');
+    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
+  }
+
+  .project-card--abwiches {
+    background-image: url('assets/work/abwiches/abwiches-2.jpg');
+    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
+  }
+
+  .section-heading {
+    font-size: 26px;
+  }
+
+  .about {
+    padding: 50px 50px 50px;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "caption"
+      "cards";
+    row-gap: 32px;
+  }
+
+  .about__cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 19px;
+  }
+
+  .about__card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .typing-text {
+    font-size: 36px;
+  }
+
+  .about__paragraph-wrap {
+    height: auto;
+  }
+
+  .about__paragraph,
+  .about__caption {
+    max-width: none;
+    font-size: 15px;
+  }
+
+  .about__caption {
+    white-space: normal;
+  }
+
+  /*
+    Single-column layout here, so the carousel spans the full content
+    width (768 canvas - 100px side padding = 668px): (668 - 3×19) / 4.
+  */
+  .about__polaroid {
+    width: 152.75px;
+    /*
+      Shorter than the inherited 168px desktop height so these read
+      as close to square (152.75 wide) instead of tall portrait
+      strips — without landing exactly on 1:1.
+    */
+    height: 170px;
+    /*
+      Reset the desktop breakpoint's top-heavy margin — this tier
+      isn't the one that needs to sit flush with a cards column, so
+      go back to a plain, symmetric sway buffer split evenly by
+      align-items: center below.
+    */
+    margin: 0;
+  }
+
+  .about__carousel-track {
+    align-items: center;
+    height: 194px;
+  }
+
+  /* photo height (170px) + 24px sway buffer (12px top, 12px bottom) */
+  .about__carousel {
+    height: 194px;
+  }
+
+  .about__carousel-string {
+    top: 33px; /* 12px buffer + ~1/8 of 170px */
+  }
+}
+
+/* ================= SMALL — 360px canvas ================= */
+
+@media (max-width: 767.98px) {
+  .contact {
+    width: 300px;
+  }
+
+  /*
+    Fixed 360px canvas left real phones (390-430px wide) with a big,
+    unintended gap outside the design on top of the deliberate 30px
+    inner padding used throughout this breakpoint. Fluid-with-a-cap
+    closes that outer gap on wider phones (still capped at 380px so
+    the 300px-content-column math above stays close to its original
+    proportions) while never overflowing narrower phones like the SE
+    (375px) — width can't exceed the viewport minus a 20px margin.
+  */
+  .container {
+    width: calc(100% - 20px);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .nav {
+    height: 80px;
+  }
+
+  .nav__logo-img {
+    height: 34px;
+  }
+
+  .nav__links {
+    display: none;
+  }
+
+  .nav__toggle-wrap {
+    display: block;
+    position: relative;
+  }
+
+  .nav__toggle {
+    display: flex;
+    position: relative;
+    z-index: 20;
+  }
+
+  .nav__mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: #fff;
+    flex-direction: column;
+    align-items: center;
+    padding: 112px 20px 40px;
+    gap: 16px;
+    border-bottom-left-radius: 28px;
+    border-bottom-right-radius: 28px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  }
+
+  .nav__backdrop {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: rgba(0, 0, 0, 0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .nav__backdrop.is-open {
+    display: block;
+  }
+
+  .nav__mobile-menu.is-open {
+    display: flex;
+  }
+
+  .nav__mobile-link {
+    padding: 16px 40px;
+    border: 1px solid var(--border-grey);
+    border-radius: 999px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--black);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .nav__mobile-link:hover {
+    border-color: var(--green-fill);
+    background-color: var(--green-outline);
+  }
+
+  .hero {
+    padding: 20px 30px 0;
+  }
+
+  .hero__headline {
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    white-space: normal;
+    line-height: 1;
+    max-width: 340px;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 21px;
+    padding: 24px 30px 0;
+  }
+
+  .intro__content {
+    order: -1;
+  }
+
+  .intro__heading {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .intro__body {
+    font-size: 14px;
+    margin-bottom: 20px;
+    max-width: none;
+  }
+
+  .intro__image {
+    display: none;
+  }
+
+  .gallery {
+    flex-direction: column;
+    gap: 19px;
+    padding: 19px 30px 0;
+  }
+
+  .gallery--featured .project-card,
+  .gallery--simple .project-card {
+    flex: none;
+    width: 100%;
+    height: 250px;
+  }
+
+  .project-card--kirks {
+    background-image: url('assets/work/kirks/kirks-3.jpg');
+  }
+
+  .project-card--nwe {
+    background-image: url('assets/work/new-west-elite/nwe-3.jpg');
+    --rest-y: 37%; /* 250px card at the small breakpoint */
+  }
+
+  .project-card--basket {
+    background-image: url('assets/work/basket/basket-3.jpg');
+    --rest-y: 37%; /* 250px card at the small breakpoint */
+  }
+
+  .project-card--caseit {
+    background-image: url('assets/work/caseit/caseit-3.jpg');
+    --rest-y: 37%; /* 250px card at the small breakpoint */
+  }
+
+  .project-card--abwiches {
+    background-image: url('assets/work/abwiches/abwiches-3.jpg');
+    --rest-y: 37%; /* 250px card at the small breakpoint */
+  }
+
+  .section-heading {
+    font-size: 22px;
+  }
+
+  .about {
+    padding: 24px 30px 40px;
+    gap: 8px;
+  }
+
+  .about__body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "caption"
+      "cards";
+    row-gap: 24px;
+  }
+
+  .about__main {
+    gap: 14px;
+  }
+
+  .about__paragraph-wrap {
+    height: auto;
+    gap: 12px;
+  }
+
+  .about__paragraph,
+  .about__caption {
+    max-width: none;
+    font-size: 14px;
+  }
+
+  .about__caption {
+    white-space: normal;
+  }
+
+  .about__photo {
+    height: 203px;
+  }
+
+  /* photo height (136px) + 20px sway buffer (10px top, 10px bottom) */
+  .about__carousel {
+    height: 156px;
+  }
+
+  .about__carousel-clip {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 30px,
+      black calc(100% - 30px),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black 30px,
+      black calc(100% - 30px),
+      transparent 100%
+    );
+  }
+
+  .about__carousel-track {
+    gap: 12px;
+    height: 156px;
+  }
+
+  /*
+    360 canvas - 60px side padding = 300px content width. Only 2
+    photos shown at a time here (vs 4 at the larger tiers), so each
+    one can be wider: (300 - 1×12) / 2.
+  */
+  .about__polaroid {
+    width: 144px;
+    /*
+      Taller than the medium breakpoint's ratio so these read closer
+      to square at this width instead of a shorter squat strip.
+    */
+    height: 136px;
+    margin: 0;
+  }
+
+  .about__carousel-track {
+    align-items: center;
+  }
+
+  .about__carousel-string {
+    top: 27px; /* 10px buffer + ~1/8 of 136px */
+  }
+
+  .about__cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .about__card {
+    height: auto;
+    padding: 13.5px;
+  }
+
+  /*
+    152px matches Spotify's compact embed's natural height — below
+    that it doesn't reflow cleanly and just leaves dead space, so all
+    three media boxes share this height rather than the tighter one
+    used elsewhere at this breakpoint.
+  */
+  .about__card-media {
+    height: 152px;
+  }
+
+  .typing-text {
+    font-size: 20px;
+  }
+
+  .contact {
+    padding: 40px 30px 40px;
+  }
+
+  .contact__person {
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .contact__avatar {
+    width: 44px;
+    height: 44px;
+  }
+
+  .contact__name {
+    font-size: 13px;
+  }
+
+  .contact__role {
+    font-size: 11px;
+  }
+
+  .contact__links {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+  }
+
+  .contact__link {
+    padding: 7px 15px;
+    font-size: 13px;
+  }
+}
+
+/* ================= Project Detail Page ================= */
+/*
+  Single-project subpage (e.g. work/kirks-bike-shop/index.html).
+  Reuses the site's existing tokens/typography scale rather than
+  introducing new ones — section-heading-style labels, the same
+  12px card radius, the same green accent, the same 30/26/22 and
+  19px-gap conventions used everywhere else.
+*/
+
+.project-detail {
+  padding: 32px 50px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.project-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  height: 44px;
+  padding: 0 20px 0 16px;
+  border: 1px solid var(--border-grey);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--body-grey);
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.project-detail__back svg {
+  color: currentColor;
+  flex-shrink: 0;
+}
+
+.project-detail__back:hover {
+  border-color: var(--green-fill);
+  background-color: var(--green-outline);
+  color: var(--black);
+}
+
+.project-detail__hero {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-detail__hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.project-detail__hero-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 40px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0) 70%);
+}
+
+.project-detail__hero-title {
+  margin: 0;
+  font-family: "Alte Haas Grotesk", -apple-system, sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+.project-detail__title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.project-detail__title {
+  font-size: 34px;
+}
+
+.project-detail__section {
+  display: flex;
+  flex-direction: column;
+}
+
+/*
+  The small green-dot + label marker matching the reference site's
+  "• Project Overview" / "• Project Details" section tags.
+*/
+.project-detail__label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 16px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.project-detail__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green-fill);
+  flex-shrink: 0;
+}
+
+.project-detail__overview-text {
+  margin: 0 0 12px;
+  max-width: 1180px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.project-detail__overview-break {
+  display: block;
+}
+
+.project-detail__overview-note {
+  margin: 0;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--body-grey);
+}
+
+.project-detail__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.project-detail__field-label {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--black);
+}
+
+.project-detail__field-value {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--body-grey);
+}
+
+.project-detail__media {
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+}
+
+.project-detail__media-full {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.project-detail__media-full img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  display: block;
+}
+
+/*
+  Modifier for a .project-detail__media-full whose image shouldn't
+  be cropped at all — height: auto lets it size purely from the
+  image's own aspect ratio instead of the fixed 560px height above
+  forcing a top/bottom crop. Set the actual ratio per-image with an
+  inline `style="aspect-ratio: W / H"` on the <img> (matching that
+  image's real pixel dimensions) so this one modifier works for any
+  graphic, not just a specific hardcoded ratio.
+*/
+.project-detail__media-full--fit img {
+  height: auto;
+}
+
+/*
+  Two even squares side by side. aspect-ratio (rather than a fixed
+  px height like .project-detail__media-full) scales cleanly with
+  the column width at every breakpoint on its own, no per-tier
+  override needed.
+*/
+.project-detail__media-squares {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+}
+
+.project-detail__media-squares img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/*
+  Taller than square on purpose — for portrait source images (like
+  the ad photography), a box proportionally *wider* than the source
+  photo's own aspect ratio forces object-fit: cover to crop off the
+  sides rather than the top/bottom, which is what actually trims any
+  stray edge margin baked into a source image instead of just letting
+  it show through untouched.
+*/
+.project-detail__media-tall-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+}
+
+.project-detail__media-tall-pair img {
+  width: 100%;
+  aspect-ratio: 3 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/*
+  Three even squares in a row — same idea as .project-detail__media
+  -squares, just a 3-column grid. Useful for grouping mixed-aspect
+  source images (portrait + landscape) into one consistent-looking
+  row, since object-fit: cover crops each to the same square shape
+  regardless of its own original ratio.
+*/
+.project-detail__media-triple {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 19px;
+}
+
+.project-detail__media-triple img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Four even squares in a row — same idea, 4-column grid. */
+.project-detail__media-quad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 19px;
+}
+
+.project-detail__media-quad img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+@media (min-width: 768px) and (max-width: 1279.98px) {
+  .project-detail {
+    padding: 28px 50px 60px;
+    gap: 32px;
+  }
+
+  .project-detail__hero {
+    height: 360px;
+  }
+
+  .project-detail__hero-overlay {
+    padding: 24px;
+  }
+
+  .project-detail__hero-title {
+    font-size: 32px;
+  }
+
+  .project-detail__title {
+    font-size: 29px;
+  }
+
+  .project-detail__overview-text {
+    font-size: 20px;
+    max-width: 900px;
+  }
+
+  .project-detail__overview-break {
+    display: none;
+  }
+
+  .project-detail__grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 24px;
+  }
+
+  .project-detail__media-full img {
+    height: 360px;
+  }
+
+  .project-detail__media-full--fit img {
+    height: auto;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .project-detail {
+    padding: 20px 30px 40px;
+    gap: 28px;
+  }
+
+  .project-detail__back {
+    height: 38px;
+    padding: 0 16px 0 12px;
+    font-size: 14px;
+  }
+
+  .project-detail__hero {
+    height: 220px;
+    border-radius: 8px;
+  }
+
+  .project-detail__hero-overlay {
+    padding: 16px;
+  }
+
+  .project-detail__hero-title {
+    font-size: 22px;
+  }
+
+  .project-detail__title {
+    font-size: 24px;
+  }
+
+  .project-detail__title-row {
+    align-items: flex-start;
+  }
+
+  .project-detail__overview-text {
+    font-size: 17px;
+    max-width: 100%;
+  }
+
+  .project-detail__overview-break {
+    display: none;
+  }
+
+  .project-detail__grid {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    gap: 16px;
+  }
+
+  .project-detail__field-label {
+    font-size: 15px;
+  }
+
+  .project-detail__field-value {
+    font-size: 13px;
+  }
+
+  .project-detail__media {
+    gap: 12px;
+  }
+
+  .project-detail__media-full img {
+    height: 220px;
+    border-radius: 8px;
+  }
+
+  .project-detail__media-full--fit img {
+    height: auto;
+  }
+
+  .project-detail__media-squares,
+  .project-detail__media-tall-pair,
+  .project-detail__media-triple,
+  .project-detail__media-quad {
+    gap: 12px;
+  }
+
+  .project-detail__media-squares img,
+  .project-detail__media-tall-pair img,
+  .project-detail__media-triple img,
+  .project-detail__media-quad img {
+    border-radius: 8px;
+  }
+
+  /*
+    Four across is too tight at 300px content width (each cell would
+    be ~66px) — wrap to a 2x2 grid instead, matching the squares row.
+  */
+  .project-detail__media-quad {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ================= Motion (site.js) ================= */
+/*
+  Two independent pieces, both driven by site.js:
+
+  1. Page transition — a plain fade + slight lift on the whole page,
+     the standard SaaS-marketing-site pattern. html.page-fade starts
+     the page faded/lowered; site.js flips on .is-loaded a frame
+     later to bring it in, and removes .is-loaded just before
+     navigating to another internal page so it fades back out first
+     instead of cutting hard.
+
+  2. Scroll-reveal — site.js tags a curated set of elements with
+     .reveal and fades/lifts each in via IntersectionObserver the
+     first time it enters the viewport (including on initial load,
+     for anything already on-screen). transition-delay is set inline
+     per-element by site.js to stagger siblings within the same
+     parent (cards in a row, fields in the details grid, etc).
+
+  Both respect prefers-reduced-motion — site.js skips the delays/
+  observer entirely, and these rules collapse to their end state.
+*/
+
+/*
+  Opacity only, on purpose — no transform/translateY here. This is
+  the transition that has to survive right up to the moment the
+  browser actually swaps documents on navigation; a transform adds a
+  layout/compositing step that's more likely to get caught mid-frame
+  and read as a jump-cut rather than a smooth fade right at that
+  critical instant. Kept fast (150ms) too, so as little of the click
+  -to-new-page gap as possible is spent just sitting on blank white.
+*/
+html.page-fade body {
+  opacity: 0;
+}
+
+html.page-fade.is-loaded body {
+  opacity: 1;
+  transition: opacity 0.15s ease-out;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.page-fade body {
+    opacity: 1;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

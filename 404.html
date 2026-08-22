@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found | Ezrah Design Co.</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to Ezrah Design Co.'s portfolio to see branding, identity, and UI work." />
+  <meta name="robots" content="noindex, follow" />
+
+  <link rel="icon" type="image/x-icon" href="assets/other/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/other/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/other/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/other/apple-touch-icon.png" />
+  <link rel="manifest" href="assets/other/site.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <script src="site.js"></script>
+</head>
+<body>
+
+  <header class="nav">
+    <a href="index.html" class="nav__logo">
+      <img src="assets/hero/nav-logo.png" alt="Ezrah Design Co." class="nav__logo-img" />
+    </a>
+    <nav class="nav__links">
+      <a href="index.html#work" class="pill">Work</a>
+      <a href="index.html#about" class="pill">About</a>
+      <a href="index.html#contact" class="pill">Contact</a>
+    </nav>
+    <div class="nav__toggle-wrap">
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav__mobile-menu" id="navMobileMenu">
+        <a href="index.html#work" class="nav__mobile-link">Work</a>
+        <a href="index.html#about" class="nav__mobile-link">About</a>
+        <a href="index.html#contact" class="nav__mobile-link">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="nav__backdrop" id="navBackdrop"></div>
+
+  <main>
+    <section class="hero container" id="not-found" style="padding-bottom: 120px;">
+      <h1 class="hero__headline" style="white-space: normal;">This page went missing. Probably still sketching itself.</h1>
+      <p style="margin: 24px 0 0; font-size: 17px; color: #555; max-width: 520px;">404 &mdash; the page you&rsquo;re looking for doesn&rsquo;t exist, or it&rsquo;s moved. Let&rsquo;s get you back on track.</p>
+      <a href="index.html" class="btn btn--fill" style="margin-top: 28px;">Back to Home</a>
+    </section>
+  </main>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navMobileMenu = document.getElementById('navMobileMenu');
+    const navBackdrop = document.getElementById('navBackdrop');
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = navMobileMenu.classList.toggle('is-open');
+      navToggle.classList.toggle('is-open', isOpen);
+      navBackdrop.classList.toggle('is-open', isOpen);
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    navBackdrop.addEventListener('click', () => {
+      navMobileMenu.classList.remove('is-open');
+      navToggle.classList.remove('is-open');
+      navBackdrop.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+
+    navMobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMobileMenu.classList.remove('is-open');
+        navToggle.classList.remove('is-open');
+        navBackdrop.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
+</html>
