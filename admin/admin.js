@@ -441,10 +441,16 @@
     return user.jwt();
   }
 
-  function gitGatewaySave(path, base64Content) {
+  function gitGatewaySave(path, base64Content, attempt) {
+    attempt = attempt || 1;
     return getIdentityToken().then(function (token) {
-      return fetch(GIT_GATEWAY_BASE + '/contents/' + path + '?ref=' + BRANCH, {
-        headers: { Authorization: 'Bearer ' + token }
+      // cache: 'no-store' + a cache-busting query param: the browser (and
+      // intermediate caches) will otherwise happily serve a stale sha for
+      // an identical GET URL, which then makes the PUT below look like a
+      // conflicting write to GitHub and fail on any publish after the first.
+      return fetch(GIT_GATEWAY_BASE + '/contents/' + path + '?ref=' + BRANCH + '&_=' + Date.now(), {
+        headers: { Authorization: 'Bearer ' + token },
+        cache: 'no-store'
       }).then(function (res) { return res.ok ? res.json() : null; }).then(function (existing) {
         var body = { message: 'Update ' + path + ' via CMS', content: base64Content, branch: BRANCH };
         if (existing && existing.sha) body.sha = existing.sha;
@@ -453,7 +459,15 @@
           headers: { Authorization: 'Bearer ' + token, 'Content-Type': 'application/json' },
           body: JSON.stringify(body)
         }).then(function (res) {
-          if (!res.ok) throw new Error('Publish failed for ' + path);
+          if (res.ok) return;
+          return res.text().then(function (text) {
+            // A 409/422 here means the sha we sent is already stale (someone/something
+            // else committed in between) — refetch and retry once before giving up.
+            if ((res.status === 409 || res.status === 422) && attempt < 2) {
+              return gitGatewaySave(path, base64Content, attempt + 1);
+            }
+            throw new Error('Publish failed for ' + path + ' (' + res.status + '): ' + text);
+          });
         });
       });
     });
