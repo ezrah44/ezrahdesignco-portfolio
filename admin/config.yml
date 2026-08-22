@@ -2,6 +2,10 @@ backend:
   name: git-gateway
   branch: main
 
+# Lets `npx decap-server` + localhost serve real local editing for testing,
+# without needing Netlify Identity/Git Gateway. Ignored in production.
+local_backend: true
+
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
@@ -16,7 +20,11 @@ collections:
         label: "Homepage Content"
         file: "content/site.json"
         fields:
-          - { label: "Hero Headline (HTML allowed, e.g. <br>)", name: "hero.headline", widget: "text" }
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Headline (HTML allowed, e.g. <br>)", name: "headline", widget: "text" }
 
           - label: "Intro Section"
             name: "intro"
