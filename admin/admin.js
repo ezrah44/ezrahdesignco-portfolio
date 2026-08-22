@@ -533,8 +533,15 @@
   }
 
   // ---------- App shell ----------
+  // Everything the app renders lives inside #app, never document.body directly.
+  // The Netlify Identity widget injects its own iframe/modal straight into
+  // <body>, so wiping body.innerHTML on every screen change (as this used to
+  // do) silently destroyed the widget too — breaking "Log In" until a full
+  // page reload re-ran its script.
+  function appRoot() { return document.getElementById('app'); }
+
   function buildApp() {
-    document.body.innerHTML = '';
+    appRoot().innerHTML = '';
 
     var topbar = el('div', { className: 'admin-topbar' }, [
       el('div', { className: 'admin-topbar__brand' }, [
@@ -556,7 +563,7 @@
       actions.appendChild(logoutBtn);
     }
     topbar.appendChild(actions);
-    document.body.appendChild(topbar);
+    appRoot().appendChild(topbar);
 
     var shell = el('div', { className: 'admin-shell' });
     var tabs = el('div', { className: 'admin-tabs' });
@@ -579,30 +586,30 @@
     shell.appendChild(tabs);
     shell.appendChild(panelHome);
     shell.appendChild(panelWork);
-    document.body.appendChild(shell);
+    appRoot().appendChild(shell);
 
     renderSiteForm(panelHome);
     renderCaseStudies(panelWork);
   }
 
   function showLoading() {
-    document.body.innerHTML = '';
-    document.body.appendChild(el('div', { className: 'admin-loading', text: 'Loading content…' }));
+    appRoot().innerHTML = '';
+    appRoot().appendChild(el('div', { className: 'admin-loading', text: 'Loading content…' }));
   }
 
   function startApp() {
     showLoading();
     loadContent().then(buildApp).catch(function (err) {
       console.error(err);
-      document.body.innerHTML = '';
-      document.body.appendChild(el('div', { className: 'admin-loading', text: 'Failed to load content. Check the console for details.' }));
+      appRoot().innerHTML = '';
+      appRoot().appendChild(el('div', { className: 'admin-loading', text: 'Failed to load content. Check the console for details.' }));
     });
   }
 
   // ---------- Auth gate ----------
   function showGate() {
-    document.body.innerHTML = '';
-    document.body.appendChild(el('div', { className: 'admin-gate' }, [
+    appRoot().innerHTML = '';
+    appRoot().appendChild(el('div', { className: 'admin-gate' }, [
       el('img', { className: 'admin-gate__logo', src: '../assets/hero/nav-logo.png', alt: 'Ezrah Design Co.' }),
       el('h1', { className: 'admin-gate__title', text: 'Content Editor' }),
       el('p', { className: 'admin-gate__sub', text: 'Log in to edit your site’s copy and images.' }),
@@ -618,7 +625,7 @@
       return;
     }
     if (!window.netlifyIdentity) {
-      document.body.appendChild(el('div', { className: 'admin-loading', text: 'Netlify Identity failed to load.' }));
+      appRoot().appendChild(el('div', { className: 'admin-loading', text: 'Netlify Identity failed to load.' }));
       return;
     }
     window.netlifyIdentity.on('init', function (user) {
