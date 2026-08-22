@@ -91,6 +91,8 @@ collections:
   - name: "work"
     label: "Case Studies"
     folder: "content/work"
+    extension: "json"
+    format: "json"
     create: false
     delete: false
     identifier_field: "title"
