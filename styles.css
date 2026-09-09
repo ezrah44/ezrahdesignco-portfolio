@@ -1593,7 +1593,6 @@ a {
 
 .project-detail__story p {
   margin: 0 0 18px;
-  max-width: 640px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.65;
@@ -1602,14 +1601,6 @@ a {
 
 .project-detail__story p:last-child {
   margin-bottom: 0;
-}
-
-/* Modifier for a .project-detail__grid with only 3 fields (no Client).
-   Spreads them edge to edge instead of leaving a gap where a 4th column was. */
-.project-detail__grid--three {
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
 }
 
 /*
@@ -1663,6 +1654,15 @@ a {
   gap: 24px;
 }
 
+/* Modifier for a .project-detail__grid with only 3 fields (no Client).
+   Spreads them edge to edge to match the gallery images' full width,
+   instead of leaving a gap where a 4th grid column used to be. */
+.project-detail__grid--three {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 .project-detail__field-label {
   margin: 0 0 8px;
   font-size: 18px;
@@ -1682,6 +1682,7 @@ a {
   display: flex;
   flex-direction: column;
   gap: 19px;
+  margin-top: 24px;
 }
 
 .project-detail__media-full {
@@ -1830,7 +1831,7 @@ a {
 
   .project-detail__info {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 24px;
   }
 
   .project-detail__media-full img {
@@ -1897,7 +1898,7 @@ a {
 
   .project-detail__info {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 24px;
   }
 
   .project-detail__story p {
