@@ -323,7 +323,23 @@ a {
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
-  transition: background-position 0.15s ease-out;
+  /*
+    No transition here on purpose: while the cursor is actually
+    moving inside the card, background-position should snap 1:1 with
+    it for tight, responsive tracking. The eased enter/exit glide
+    lives entirely in .is-settling below, so it doesn't fight this.
+  */
+}
+
+/*
+  Applied only around the moment the cursor enters or leaves a card
+  (see the hover-follow script below), so the image eases smoothly
+  into and out of position instead of snapping. Removed again once
+  that eased move finishes, so continuous tracking goes right back to
+  the instant 1:1 response above while the cursor is actually moving.
+*/
+.project-card.is-settling {
+  transition: background-position 0.4s ease;
 }
 
 .project-card__img {

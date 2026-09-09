@@ -249,6 +249,19 @@
           var v = parseFloat(getComputedStyle(card).getPropertyValue('--rest-y'));
           return isNaN(v) ? 50 : v;
         }
+        // Tracks whether the card just entered (or left) hover, so the
+        // very first move eases in smoothly instead of snapping straight
+        // to the cursor. Cleared once that eased move has had time to
+        // finish, so continuous tracking afterward stays fast and tight.
+        var settleTimer = null;
+        function settle() {
+          card.classList.add('is-settling');
+          clearTimeout(settleTimer);
+          settleTimer = setTimeout(function () {
+            card.classList.remove('is-settling');
+          }, 400);
+        }
+        card.addEventListener('mouseenter', settle);
         card.addEventListener('mousemove', function (e) {
           var rect = card.getBoundingClientRect();
           var xPct = (e.clientX - rect.left) / rect.width;
@@ -258,6 +271,7 @@
           card.style.backgroundPosition = posX + '% ' + posY + '%';
         });
         card.addEventListener('mouseleave', function () {
+          settle();
           card.style.backgroundPosition = '50% ' + restY() + '%';
         });
       });
