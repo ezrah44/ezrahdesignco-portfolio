@@ -1,14 +1,15 @@
 {
   "title": "Abwiches",
+  "headlineSoft": "bringing a rustic European sandwich shop to Canadians.",
   "category": "Identity",
   "metaDescription": "A rustic, authentic, and delicious sandwich shop serving up the best flavour combinations you can think of.",
   "hero": {
     "src": "assets/work/abwiches/subpage-cover.jpg",
     "alt": "Abwiches"
   },
-  "overview": "A rustic, authentic, and delicious sandwich shop serving up the best flavour combinations you can think of.",
-  "overviewNote": "*Passion project*",
-  "client": "Abwiches",
+  "tags": ["Identity"],
+  "storyBrief": "Abwiches is a dream sandwich shop for my friend Ab, who has always wanted to build a shop around his passion for cooking and travel. Inspired by the European influence Ab picked up while living in Vienna, we set out to build an authentic brand that highlights the great bread, fresh ingredients, and rustic feel of a classic European sandwich shop.",
+  "storyConcept": "The logo, built around Ab’s face, is a nod to his friend-group-famous beard. I built a hand-drawn identity around it with the main mark, playful icons, and different variations of the primary face logo.",
   "tools": "Affinity Designer, Figma",
   "industry": "Food",
   "timeframe": "1 month",
