@@ -1,14 +1,15 @@
 {
   "title": "CaseIT",
+  "headlineSoft": "putting together the package for the world’s premier undergraduate MIS case competition.",
   "category": "Print Design",
   "metaDescription": "The world's premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.",
   "hero": {
     "src": "assets/work/caseit/subpage-cover.jpg",
     "alt": "CaseIT"
   },
-  "overview": "The world’s premier international undergraduate MIS case competition, bringing business students from across the globe to Vancouver, BC.",
-  "overviewNote": "",
-  "client": "CaseIT",
+  "tags": ["Print Design"],
+  "storyBrief": "CaseIT is an international case competition out of Simon Fraser University’s Beedie School of Business, bringing teams from several continents into Vancouver to compete over a week-long event. As the Vice Chair of Marketing for CaseIT, I was tasked with designing the package for the 5-Hour Case alongside our sponsor, BC Cancer, exploring how AI and modern technology could be applied in hospitals across BC.",
+  "storyConcept": "Teams only get five hours to work through the case before their presentation, so layout, hierarchy, and visual design had to be efficient and beneficial to the readers. Every section and diagram needed to read clearly at a glance. My goal was to ensure competitors could navigate fast instead of spending their valuable time hunting for information.",
   "tools": "Figma",
   "industry": "MIS",
   "timeframe": "3 months",
