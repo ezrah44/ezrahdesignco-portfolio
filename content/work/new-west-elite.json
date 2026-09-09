@@ -1,14 +1,15 @@
 {
   "title": "New West Elite",
+  "headlineSoft": "redesigning New Westminster’s first AAU basketball program.",
   "category": "Identity",
   "metaDescription": "New Westminster's first-ever AAU basketball program designed to make basketball more accessible to the community.",
   "hero": {
     "src": "assets/work/new-west-elite/subpage-cover.jpg",
     "alt": "New West Elite"
   },
-  "overview": "New Westminster’s first-ever AAU basketball program designed to make basketball more accessible to the community.",
-  "overviewNote": "",
-  "client": "New West Elite",
+  "tags": ["Identity"],
+  "storyBrief": "New West Elite is a client from my hometown, New Westminster, BC. They created the city’s first competitive basketball teams for boys and girls of all ages, travelling to high-level tournaments and helping players commit to playing basketball in university. The old brand just didn’t match that.",
+  "storyConcept": "The logo was far too busy, and too many shades of the brand colours made it nearly impossible to print on a jersey, use on social media, or get kids excited to wear. Now I regularly see this mark on shirts, backpacks, and shorts in my local gym. It reflects the modern, elite direction the program was heading in, and it’s a mark kids are actually proud to wear.",
   "tools": "Affinity Designer, Figma",
   "industry": "Sports",
   "timeframe": "3 months",
