@@ -176,6 +176,9 @@
     setText('cms-category', data.category);
     if (data.hero) setImg('cms-hero-img', data.hero.src, data.hero.alt);
     setText('cms-overview', data.overview);
+    setText('cms-headline-soft', data.headlineSoft);
+    setText('cms-story-brief', data.storyBrief);
+    setText('cms-story-concept', data.storyConcept);
 
     var noteEl = document.getElementById('cms-overview-note');
     if (noteEl) {
@@ -185,6 +188,17 @@
       } else {
         noteEl.style.display = 'none';
       }
+    }
+
+    var tagsEl = document.getElementById('cms-tags');
+    if (tagsEl && Array.isArray(data.tags)) {
+      tagsEl.innerHTML = '';
+      data.tags.forEach(function (tag) {
+        var span = document.createElement('span');
+        span.className = 'project-detail__tag';
+        span.textContent = tag;
+        tagsEl.appendChild(span);
+      });
     }
 
     setText('cms-field-client', data.client);

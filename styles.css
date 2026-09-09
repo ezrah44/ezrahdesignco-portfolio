@@ -1557,9 +1557,59 @@ a {
   font-size: 34px;
 }
 
+.project-detail__title-soft {
+  color: var(--body-grey);
+  font-weight: 500;
+}
+
 .project-detail__section {
   display: flex;
   flex-direction: column;
+}
+
+/* Two-column "what I did / the story" block: tags on the left, copy on the right. */
+.project-detail__info {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+}
+
+.project-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+}
+
+.project-detail__tag {
+  padding: 7px 16px;
+  border: 1px solid var(--border-grey);
+  border-radius: 999px;
+  background: var(--placeholder-grey);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.project-detail__story p {
+  margin: 0 0 18px;
+  max-width: 640px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--black);
+}
+
+.project-detail__story p:last-child {
+  margin-bottom: 0;
+}
+
+/* Modifier for a .project-detail__grid with only 3 fields (no Client).
+   Spreads them edge to edge instead of leaving a gap where a 4th column was. */
+.project-detail__grid--three {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
 }
 
 /*
@@ -1773,6 +1823,16 @@ a {
     row-gap: 24px;
   }
 
+  .project-detail__grid--three {
+    flex-wrap: wrap;
+    row-gap: 24px;
+  }
+
+  .project-detail__info {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
   .project-detail__media-full img {
     height: 360px;
   }
@@ -1828,6 +1888,20 @@ a {
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
     gap: 16px;
+  }
+
+  .project-detail__grid--three {
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
+  .project-detail__info {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-detail__story p {
+    font-size: 15px;
   }
 
   .project-detail__field-label {

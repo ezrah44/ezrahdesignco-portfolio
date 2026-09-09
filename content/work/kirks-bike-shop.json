@@ -1,14 +1,15 @@
 {
   "title": "Kirk’s Bike Shop",
+  "headlineSoft": "building a modern bike shop with a vintage soul.",
   "category": "Identity",
   "metaDescription": "A Vancouver bike shop that specializes in road bikes, repairs, and gettin' those wheels rolling.",
   "hero": {
     "src": "assets/work/kirks/subpage-cover.jpg",
     "alt": "Kirk’s Bike Shop"
   },
-  "overview": "A Vancouver bike shop that specializes in road bikes, repairs, and gettin’ those wheels rolling.",
-  "overviewNote": "*Passion project*",
-  "client": "Kirk’s Bike Shop",
+  "tags": ["Identity"],
+  "storyBrief": "Kirk’s the guy who got me into biking, and for years we’ve joked about running a bike shop together. This is that shop: the logo, mockups, and a few social ads, all built for Kirk.",
+  "storyConcept": "Most bike shops right now feel pretty corporate and modernized, so I wanted to go in a direction that aligned with Kirk’s vintage style and retro feel while still feeling new and fresh. Oh, and the orange is on purpose too. 👨🏻‍🦰 (Kirk).",
   "tools": "Affinity Designer, Figma",
   "industry": "Retail",
   "timeframe": "1 month",
