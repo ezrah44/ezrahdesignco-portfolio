@@ -1,14 +1,15 @@
 {
   "title": "Basket",
+  "headlineSoft": "cutting household food waste across Canada.",
   "category": "Identity + UI",
   "metaDescription": "A grocery app helping Canadian households cut food waste by scanning receipts and planning recipes around what's about to expire.",
   "hero": {
     "src": "assets/work/basket/subpage-cover.jpg",
     "alt": "Basket"
   },
-  "overview": "A grocery app helping Canadian households cut food waste by scanning receipts and planning recipes around what’s about to expire.",
-  "overviewNote": "",
-  "client": "Basket",
+  "tags": ["Identity", "UI Design"],
+  "storyBrief": "As part of a Sustainable Innovation course, my team built Basket to tackle a real sustainability issue in our country: food waste. Basket is an app that scans your receipts when you get home from the grocery store, uses historical data to track when each item is likely to expire, and suggests daily recipes based on what is actually about to go bad in your kitchen.",
+  "storyConcept": "To truly bring our idea to life, I built Basket’s brand as well as prototyped the entire application to match the advanced, sustainable, and techy feel that my team and I were going for. By the time we presented, we weren’t pitching a slide deck. We were showing a working app people could actually picture using.",
   "tools": "Affinity, Figma",
   "industry": "Sustainability",
   "timeframe": "2 months",
