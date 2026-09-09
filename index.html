@@ -249,19 +249,17 @@
           var v = parseFloat(getComputedStyle(card).getPropertyValue('--rest-y'));
           return isNaN(v) ? 50 : v;
         }
-        // Tracks whether the card just entered (or left) hover, so the
-        // very first move eases in smoothly instead of snapping straight
-        // to the cursor. Cleared once that eased move has had time to
-        // finish, so continuous tracking afterward stays fast and tight.
-        var settleTimer = null;
-        function settle() {
-          card.classList.add('is-settling');
-          clearTimeout(settleTimer);
-          settleTimer = setTimeout(function () {
-            card.classList.remove('is-settling');
-          }, 400);
-        }
-        card.addEventListener('mouseenter', settle);
+        // .is-tracking keeps every background-position change eased at
+        // the same speed, entering, tracking, and leaving alike, so the
+        // motion feels like one continuous glide instead of a smooth
+        // entrance followed by instant 1:1 tracking. Stays on for a
+        // moment after mouseleave so the return-to-center glide plays
+        // out too, then clears so a future re-entry starts clean.
+        var leaveTimer = null;
+        card.addEventListener('mouseenter', function () {
+          clearTimeout(leaveTimer);
+          card.classList.add('is-tracking');
+        });
         card.addEventListener('mousemove', function (e) {
           var rect = card.getBoundingClientRect();
           var xPct = (e.clientX - rect.left) / rect.width;
@@ -271,8 +269,11 @@
           card.style.backgroundPosition = posX + '% ' + posY + '%';
         });
         card.addEventListener('mouseleave', function () {
-          settle();
           card.style.backgroundPosition = '50% ' + restY() + '%';
+          clearTimeout(leaveTimer);
+          leaveTimer = setTimeout(function () {
+            card.classList.remove('is-tracking');
+          }, 400);
         });
       });
     })();
