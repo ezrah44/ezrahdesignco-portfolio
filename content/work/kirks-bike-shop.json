@@ -18,6 +18,19 @@
       "type": "squares",
       "images": [
         {
+          "src": "assets/work/kirks/icon.jpg",
+          "alt": "Kirk’s Bike Shop icon mark"
+        },
+        {
+          "src": "assets/work/kirks/text logo.jpg",
+          "alt": "Kirk’s Bike Shop wordmark logo"
+        }
+      ]
+    },
+    {
+      "type": "squares",
+      "images": [
+        {
           "src": "assets/work/kirks/k.jpg",
           "alt": "K icon mark"
         },
