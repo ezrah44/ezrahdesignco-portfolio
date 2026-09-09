@@ -326,16 +326,23 @@ a {
 }
 
 /*
-  Applied for the whole time the cursor is over a card, from
-  mouseenter to just after mouseleave (see the hover-follow script
-  below), so every background-position change, entering, tracking,
-  and leaving, eases at the same speed instead of the entrance
-  gliding while continuous tracking snaps 1:1. Needs the extra class
-  (rather than living on .project-card itself) to out-specificity the
-  .reveal scroll-in animation's own transition shorthand, which would
-  otherwise silently strip this out entirely.
+  Applied only around the moment the cursor enters or leaves a card
+  (see the hover-follow script below), so the image eases smoothly
+  into and out of position instead of snapping. Removed again once
+  that eased move finishes, so continuous tracking while the cursor
+  is actually moving inside the card stays instant and 1:1 with it.
+
+  It has to work this way and not just live on .project-card at all
+  times: mousemove fires far more often than a 0.4s transition can
+  finish, so if every position change were eased, each new event
+  would interrupt the last one mid-flight and the image would crawl
+  behind the cursor instead of following it (tried this, it froze).
+
+  Needs the extra class (rather than living on .project-card itself)
+  to out-specificity the .reveal scroll-in animation's own transition
+  shorthand, which would otherwise silently strip this out entirely.
 */
-.project-card.is-tracking {
+.project-card.is-settling {
   transition: background-position 0.4s ease;
 }
 
