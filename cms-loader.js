@@ -140,7 +140,10 @@
     'full-fit': { className: 'project-detail__media-full project-detail__media-full--fit', count: 1 },
     'tall-pair': { className: 'project-detail__media-tall-pair', count: 2 },
     triple: { className: 'project-detail__media-triple', count: 3 },
-    quad: { className: 'project-detail__media-quad', count: 4 }
+    quad: { className: 'project-detail__media-quad', count: 4 },
+    'pair-fit': { className: 'project-detail__media-pair', count: 2 },
+    feature: { className: 'project-detail__media-feature', count: 3 },
+    video: { className: 'project-detail__media-video', count: 1 }
   };
 
   function renderGallery(items) {
@@ -154,6 +157,19 @@
       block.className = layout.className;
       var images = item.images || [];
       images.slice(0, layout.count).forEach(function (photo) {
+        if (item.type === 'video') {
+          var video = document.createElement('video');
+          video.src = basePath() + photo.src;
+          if (photo.poster) video.poster = basePath() + photo.poster;
+          video.muted = true;
+          video.loop = true;
+          video.autoplay = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          video.setAttribute('aria-label', photo.alt || '');
+          block.appendChild(video);
+          return;
+        }
         var img = document.createElement('img');
         img.src = basePath() + photo.src;
         img.alt = photo.alt || '';
@@ -203,6 +219,7 @@
 
     setText('cms-field-client', data.client);
     setText('cms-field-tools', data.tools);
+    setText('cms-field-services', data.services);
     setText('cms-field-industry', data.industry);
     setText('cms-field-timeframe', data.timeframe);
 

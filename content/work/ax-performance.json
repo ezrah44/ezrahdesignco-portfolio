@@ -1,0 +1,125 @@
+{
+  "title": "Ax Performance",
+  "headlineSoft": "a strength and conditioning practice built on evidence, not hype.",
+  "category": "Identity",
+  "metaDescription": "Identity for a strength and conditioning coach.",
+  "hero": {
+    "src": "assets/work/ax-performance/subpage-cover.jpg",
+    "alt": "The volt green Ax mark over a gym floor"
+  },
+  "tags": [
+    "Identity"
+  ],
+  "storyBrief": "Ax Performance is Axel Sanderson’s strength and conditioning practice. He coaches one on one, in small groups and with whole teams. Axel coaches by the evidence, not the hype, and his brand needed to look as sharp as his programming, not like every other gym logo.",
+  "storyConcept": "The mark is an A and an X sharing the same strokes, set on a forward lean. Volt green on charcoal gives it energy in a dark gym, and it runs through everything Axel puts in a client’s hands, from business cards and bottles to his Instagram.",
+  "client": "Ax Performance",
+  "industry": "Strength and conditioning",
+  "services": "Identity",
+  "gallery": [
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/1a.webp",
+          "alt": "The Ax Performance logo in black on volt green",
+          "aspect": "2880 / 1098"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/ax.mp4",
+          "poster": "assets/work/ax-performance/ax-poster.webp",
+          "alt": "The Ax Performance logo being built from its guides"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/1b.webp",
+          "alt": "The Ax mark on a charcoal hoodie",
+          "aspect": "1416 / 1132"
+        },
+        {
+          "src": "assets/work/ax-performance/1c.webp",
+          "alt": "Axel coaching a group of young lacrosse players, with the Ax mark on his hoodie",
+          "aspect": "1416 / 1132"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/2a.webp",
+          "alt": "The Ax mark on a 5 kg weight plate",
+          "aspect": "1416 / 1888"
+        },
+        {
+          "src": "assets/work/ax-performance/2b.webp",
+          "alt": "Axel in a cut out frame on volt green, with the Ax mark above him",
+          "aspect": "1416 / 1888"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/4a.webp",
+          "alt": "Two portraits of Axel coaching, side by side on a charcoal background",
+          "aspect": "2880 / 1098"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/3b.webp",
+          "alt": "Two black Ax Performance water bottles standing on a gym counter",
+          "aspect": "1416 / 2300"
+        },
+        {
+          "src": "assets/work/ax-performance/3c.webp",
+          "alt": "The Ax mark in volt green over a blurred shot of Axel in the gym",
+          "aspect": "1416 / 1132"
+        },
+        {
+          "src": "assets/work/ax-performance/3d.webp",
+          "alt": "The Ax pattern in volt green, repeating the mark’s angled strokes",
+          "aspect": "1416 / 1132"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/3a.webp",
+          "alt": "The front and back of the Ax Performance business card on charcoal",
+          "aspect": "2880 / 1098"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/ax-performance/4b.webp",
+          "alt": "The Ax Performance Instagram profile with the Ax avatar",
+          "aspect": "1416 / 1062"
+        },
+        {
+          "src": "assets/work/ax-performance/4c.webp",
+          "alt": "An Ax Performance lanyard hanging in the gym",
+          "aspect": "1416 / 1062"
+        }
+      ]
+    }
+  ]
+}

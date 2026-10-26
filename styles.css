@@ -448,13 +448,13 @@ a {
   --rest-y: 41%; /* 349px featured card at the large breakpoint */
 }
 
-.project-card--basket {
-  background-image: url('assets/work/basket/basket-1.jpg');
+.project-card--zpro {
+  background-image: url('assets/work/zpro/zpro-1.jpg');
   --rest-y: 41%; /* 349px simple card at the large breakpoint */
 }
 
-.project-card--caseit {
-  background-image: url('assets/work/caseit/caseit-1.jpg');
+.project-card--ax {
+  background-image: url('assets/work/ax-performance/ax-1.jpg');
   --rest-y: 41%; /* 349px simple card at the large breakpoint */
 }
 
@@ -1061,6 +1061,19 @@ a {
     height: 240px;
   }
 
+  .gallery--simple .project-card-overlay {
+    gap: 8px;
+  }
+
+  .gallery--simple .project-card-title {
+    font-size: 15px;
+  }
+
+  .gallery--simple .project-card-category {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
   .project-card--kirks {
     background-image: url('assets/work/kirks/kirks-2.jpg');
   }
@@ -1070,13 +1083,13 @@ a {
     --rest-y: 37%; /* 240px featured card at the medium breakpoint */
   }
 
-  .project-card--basket {
-    background-image: url('assets/work/basket/basket-2.jpg');
+  .project-card--zpro {
+    background-image: url('assets/work/zpro/zpro-2.jpg');
     --rest-y: 37%; /* 240px simple card at the medium breakpoint */
   }
 
-  .project-card--caseit {
-    background-image: url('assets/work/caseit/caseit-2.jpg');
+  .project-card--ax {
+    background-image: url('assets/work/ax-performance/ax-2.jpg');
     --rest-y: 37%; /* 240px simple card at the medium breakpoint */
   }
 
@@ -1324,13 +1337,13 @@ a {
     --rest-y: 37%; /* 250px card at the small breakpoint */
   }
 
-  .project-card--basket {
-    background-image: url('assets/work/basket/basket-3.jpg');
+  .project-card--zpro {
+    background-image: url('assets/work/zpro/zpro-3.jpg');
     --rest-y: 37%; /* 250px card at the small breakpoint */
   }
 
-  .project-card--caseit {
-    background-image: url('assets/work/caseit/caseit-3.jpg');
+  .project-card--ax {
+    background-image: url('assets/work/ax-performance/ax-3.jpg');
     --rest-y: 37%; /* 250px card at the small breakpoint */
   }
 
@@ -1808,6 +1821,60 @@ a {
   display: block;
 }
 
+/*
+  Two images side by side at their own aspect ratios (set inline per
+  image), for evidence shots where cropping would cut off labels.
+*/
+.project-detail__media-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 19px;
+}
+
+.project-detail__media-pair img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+/*
+  One tall image on the left, two stacked on the right. The images'
+  aspect ratios (set inline) are chosen so the stack lines up with the
+  tall one.
+*/
+.project-detail__media-feature {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 19px;
+}
+
+.project-detail__media-feature img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+.project-detail__media-feature img:first-child {
+  grid-row: 1 / 3;
+}
+
+.project-detail__media-video {
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 1440 / 550;
+}
+
+.project-detail__media-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 @media (min-width: 768px) and (max-width: 1279.98px) {
   .project-detail {
     padding: 28px 50px 60px;
@@ -1948,6 +2015,8 @@ a {
 
   .project-detail__media-squares,
   .project-detail__media-tall-pair,
+  .project-detail__media-pair,
+  .project-detail__media-feature,
   .project-detail__media-triple,
   .project-detail__media-quad {
     gap: 12px;
@@ -1955,6 +2024,9 @@ a {
 
   .project-detail__media-squares img,
   .project-detail__media-tall-pair img,
+  .project-detail__media-pair img,
+  .project-detail__media-feature img,
+  .project-detail__media-video,
   .project-detail__media-triple img,
   .project-detail__media-quad img {
     border-radius: 8px;

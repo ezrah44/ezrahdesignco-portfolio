@@ -71,15 +71,15 @@
   ],
   "simpleProjects": [
     {
-      "slug": "basket",
-      "title": "Basket",
-      "category": "Identity + UI",
+      "slug": "zpro",
+      "title": "ZPRO",
+      "category": "Identity + Web",
       "visible": true
     },
     {
-      "slug": "caseit",
-      "title": "CaseIt",
-      "category": "Print Design",
+      "slug": "ax-performance",
+      "title": "Ax Performance",
+      "category": "Identity",
       "visible": true
     },
     {

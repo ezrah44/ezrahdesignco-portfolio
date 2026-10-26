@@ -315,7 +315,10 @@
     { value: 'full-fit', label: 'One full-width image (fits its own aspect ratio)' },
     { value: 'tall-pair', label: 'Two tall images side by side' },
     { value: 'triple', label: 'Three images in a row' },
-    { value: 'quad', label: 'Four images in a grid' }
+    { value: 'quad', label: 'Four images in a grid' },
+    { value: 'pair-fit', label: 'Two images side by side (fit their own aspect ratios)' },
+    { value: 'feature', label: 'One tall image beside two stacked (three images)' },
+    { value: 'video', label: 'One looping video (set in the JSON file)' }
   ];
 
   function renderCaseStudyDetail(container, slug) {

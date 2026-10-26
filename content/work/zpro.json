@@ -1,0 +1,116 @@
+{
+  "title": "ZPRO",
+  "headlineSoft": "a drone building-cleaning company that needed to look established.",
+  "category": "Identity, Website",
+  "metaDescription": "Brand and website for a building cleaning company that works by drone.",
+  "hero": {
+    "src": "assets/work/zpro/subpage-cover.jpg",
+    "alt": "The ZPRO logo over a glass building"
+  },
+  "tags": [
+    "Identity",
+    "Website"
+  ],
+  "storyBrief": "ZPRO cleans buildings by drone. Windows, glass and facades on dealerships, hotels and offices. Building managers hire who they trust, so ZPRO needed to look like an established service company, with the drone as the method, not the headline.",
+  "storyConcept": "The mark is a bird in flight, folded from three sharp triangles. It hints at the drone without drawing one. One orange, one bold wordmark and square corners carry it through the website and everything a building manager sees.",
+  "client": "ZPRO Building Solutions",
+  "industry": "Building services",
+  "services": "Identity, Website",
+  "gallery": [
+    {
+      "type": "video",
+      "images": [
+        {
+          "src": "assets/work/zpro/zpro.mp4",
+          "poster": "assets/work/zpro/zpro-poster.webp",
+          "alt": "The ZPRO bird flying at the camera, then landing beside the ZPRO wordmark"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/zpro/1b.webp",
+          "alt": "A ZPRO project page for the Applewood Nissan service canopy",
+          "aspect": "1416 / 1132"
+        },
+        {
+          "src": "assets/work/zpro/1c.webp",
+          "alt": "The ZPRO bird moulded into the lid of a drone case on an orange cutting mat",
+          "aspect": "1416 / 1132"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/zpro/2a.webp",
+          "alt": "A drone washing the side of a building",
+          "aspect": "1416 / 1888"
+        },
+        {
+          "src": "assets/work/zpro/2b.webp",
+          "alt": "The six steps of a ZPRO drone clean, from the ZPRO website",
+          "aspect": "1416 / 1888"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/zpro/3a.webp",
+          "alt": "The old Z PRO logo beside the new ZPRO logo",
+          "aspect": "2880 / 1098"
+        }
+      ]
+    },
+    {
+      "type": "feature",
+      "images": [
+        {
+          "src": "assets/work/zpro/3b.webp",
+          "alt": "The white ZPRO bird over a drone cleaning a building",
+          "aspect": "1416 / 2300"
+        },
+        {
+          "src": "assets/work/zpro/3c.webp",
+          "alt": "A kestrel in flight, wings raised like the ZPRO bird",
+          "aspect": "1416 / 1132"
+        },
+        {
+          "src": "assets/work/zpro/3d.webp",
+          "alt": "A pattern of repeating ZPRO bird outlines in orange",
+          "aspect": "1416 / 1132"
+        }
+      ]
+    },
+    {
+      "type": "full-fit",
+      "images": [
+        {
+          "src": "assets/work/zpro/4a.webp",
+          "alt": "ZPRO website sections: the real clean film and the drone versus traditional access table",
+          "aspect": "2880 / 1098"
+        }
+      ]
+    },
+    {
+      "type": "pair-fit",
+      "images": [
+        {
+          "src": "assets/work/zpro/4b.webp",
+          "alt": "The ZPRO Instagram profile with the bird as its avatar",
+          "aspect": "1416 / 1062"
+        },
+        {
+          "src": "assets/work/zpro/4c.webp",
+          "alt": "A ZPRO bird sticker on a laptop",
+          "aspect": "1416 / 1062"
+        }
+      ]
+    }
+  ]
+}
