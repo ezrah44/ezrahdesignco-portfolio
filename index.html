@@ -68,15 +68,15 @@
 
     <section class="gallery gallery--featured container" id="work">
       <h2 class="sr-only">Work</h2>
-      <a href="work/kirks-bike-shop/" class="project-card project-card--featured project-card--kirks" id="cms-card-kirks-bike-shop">
+      <a href="work/zpro/" class="project-card project-card--featured project-card--zpro" id="cms-card-zpro">
         <div class="project-card-overlay">
-          <h3 class="project-card-title">Kirk&rsquo;s Bike Shop</h3>
-          <span class="project-card-category">Identity</span>
+          <h3 class="project-card-title">ZPRO</h3>
+          <span class="project-card-category">Identity + Web</span>
         </div>
       </a>
-      <a href="work/new-west-elite/" class="project-card project-card--featured project-card--nwe" id="cms-card-new-west-elite">
+      <a href="work/ax-performance/" class="project-card project-card--featured project-card--ax" id="cms-card-ax-performance">
         <div class="project-card-overlay">
-          <h3 class="project-card-title">New West Elite</h3>
+          <h3 class="project-card-title">Ax Performance</h3>
           <span class="project-card-category">Identity</span>
         </div>
       </a>
@@ -94,22 +94,22 @@
     </section>
 
     <section class="gallery gallery--simple container">
-      <a href="work/zpro/" class="project-card project-card--simple project-card--zpro" id="cms-card-zpro">
+      <a href="work/kirks-bike-shop/" class="project-card project-card--simple project-card--kirks" id="cms-card-kirks-bike-shop">
         <div class="project-card-overlay">
-          <h3 class="project-card-title">ZPRO</h3>
-          <span class="project-card-category">Identity + Web</span>
-        </div>
-      </a>
-      <a href="work/ax-performance/" class="project-card project-card--simple project-card--ax" id="cms-card-ax-performance">
-        <div class="project-card-overlay">
-          <h3 class="project-card-title">Ax Performance</h3>
+          <h3 class="project-card-title">Kirk&rsquo;s Bike Shop</h3>
           <span class="project-card-category">Identity</span>
         </div>
       </a>
-      <a href="work/abwiches/" class="project-card project-card--simple project-card--abwiches" id="cms-card-abwiches">
+      <a href="work/new-west-elite/" class="project-card project-card--simple project-card--nwe" id="cms-card-new-west-elite">
         <div class="project-card-overlay">
-          <h3 class="project-card-title">Abwiches</h3>
+          <h3 class="project-card-title">New West Elite</h3>
           <span class="project-card-category">Identity</span>
+        </div>
+      </a>
+      <a href="work/caseit/" class="project-card project-card--simple project-card--caseit" id="cms-card-caseit">
+        <div class="project-card-overlay">
+          <h3 class="project-card-title">CaseIT</h3>
+          <span class="project-card-category">Print Design</span>
         </div>
       </a>
     </section>
@@ -233,49 +233,6 @@
       });
     });
 
-  </script>
-
-  <script>
-    // Project cards: image gently follows the cursor on hover
-    (function () {
-      var cards = document.querySelectorAll('.project-card');
-      cards.forEach(function (card) {
-        // Cards can override the --rest-y custom property (see
-        // .project-card--nwe in styles.css) to recenter their resting
-        // pan position when the image's focal point needs to clear
-        // the overlay pill instead of centering on the full card.
-        // Panning stays a ±15 swing around whatever that rest point is.
-        function restY() {
-          var v = parseFloat(getComputedStyle(card).getPropertyValue('--rest-y'));
-          return isNaN(v) ? 50 : v;
-        }
-        // Tracks whether the card just entered (or left) hover, so the
-        // very first move eases in smoothly instead of snapping straight
-        // to the cursor. Cleared once that eased move has had time to
-        // finish, so continuous tracking afterward stays fast and tight.
-        var settleTimer = null;
-        function settle() {
-          card.classList.add('is-settling');
-          clearTimeout(settleTimer);
-          settleTimer = setTimeout(function () {
-            card.classList.remove('is-settling');
-          }, 400);
-        }
-        card.addEventListener('mouseenter', settle);
-        card.addEventListener('mousemove', function (e) {
-          var rect = card.getBoundingClientRect();
-          var xPct = (e.clientX - rect.left) / rect.width;
-          var yPct = (e.clientY - rect.top) / rect.height;
-          var posX = 65 - xPct * 30; // inverted so the image visually follows the cursor
-          var posY = (restY() + 15) - yPct * 30;
-          card.style.backgroundPosition = posX + '% ' + posY + '%';
-        });
-        card.addEventListener('mouseleave', function () {
-          settle();
-          card.style.backgroundPosition = '50% ' + restY() + '%';
-        });
-      });
-    })();
   </script>
 
   <script>

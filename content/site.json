@@ -57,20 +57,6 @@
   },
   "featuredProjects": [
     {
-      "slug": "kirks-bike-shop",
-      "title": "Kirk’s Bike Shop",
-      "category": "Identity",
-      "visible": true
-    },
-    {
-      "slug": "new-west-elite",
-      "title": "New West Elite",
-      "category": "Identity",
-      "visible": true
-    }
-  ],
-  "simpleProjects": [
-    {
       "slug": "zpro",
       "title": "ZPRO",
       "category": "Identity + Web",
@@ -81,11 +67,25 @@
       "title": "Ax Performance",
       "category": "Identity",
       "visible": true
+    }
+  ],
+  "simpleProjects": [
+    {
+      "slug": "kirks-bike-shop",
+      "title": "Kirk’s Bike Shop",
+      "category": "Identity",
+      "visible": true
     },
     {
-      "slug": "abwiches",
-      "title": "Abwiches",
+      "slug": "new-west-elite",
+      "title": "New West Elite",
       "category": "Identity",
+      "visible": true
+    },
+    {
+      "slug": "caseit",
+      "title": "CaseIT",
+      "category": "Print Design",
       "visible": true
     }
   ]

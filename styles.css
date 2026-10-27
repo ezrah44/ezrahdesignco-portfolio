@@ -302,49 +302,36 @@ a {
   position: relative;
   display: block;
   background-color: var(--placeholder-grey);
-  /*
-    All 5 project cover images were re-exported at 2x their original
-    size (Aug 2026), giving enough resolution headroom for retina
-    screens at the full zoom again — restored from a temporary 108%
-    used while the old, too-small covers were still in place.
-  */
-  background-size: 120%;
-  /*
-    --rest-y defaults to dead-center (50%). Cards whose image has a
-    centered logo/subject that needs to clear the overlay pill (see
-    .project-card--nwe below) override this per breakpoint instead,
-    so the focal point centers on the *visible* area above the
-    overlay rather than the full card height. The hover-follow script
-    reads this same variable, so panning stays centered around
-    whatever resting point is set here.
-  */
-  --rest-y: 50%;
-  background-position: 50% var(--rest-y);
   border-radius: 12px;
   overflow: hidden;
   text-decoration: none;
 }
 
 /*
-  Applied only around the moment the cursor enters or leaves a card
-  (see the hover-follow script below), so the image eases smoothly
-  into and out of position instead of snapping. Removed again once
-  that eased move finishes, so continuous tracking while the cursor
-  is actually moving inside the card stays instant and 1:1 with it.
-
-  It has to work this way and not just live on .project-card at all
-  times: mousemove fires far more often than a 0.4s transition can
-  finish, so if every position change were eased, each new event
-  would interrupt the last one mid-flight and the image would crawl
-  behind the cursor instead of following it (tried this, it froze).
-
-  Needs the extra class (rather than living on .project-card itself)
-  to out-specificity the .reveal scroll-in animation's own transition
-  shorthand, which would otherwise silently strip this out entirely.
+  The cover sits on a ::before layer, always centred and always covering
+  the card at any aspect ratio. Hover zooms that layer slightly; the card
+  and its text stay put (overflow:hidden clips the zoom).
 */
-.project-card.is-settling {
-  transition: background-position 0.4s ease;
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--placeholder-grey);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.4s ease;
 }
+
+.project-card:hover::before {
+  transform: scale(1.05);
+}
+
+.project-card--zpro::before { background-image: url('assets/work/zpro/card.jpg'); }
+.project-card--ax::before { background-image: url('assets/work/ax-performance/card.jpg'); }
+.project-card--kirks::before { background-image: url('assets/work/kirks/card.jpg'); }
+.project-card--nwe::before { background-image: url('assets/work/new-west-elite/card.jpg'); }
+.project-card--caseit::before { background-image: url('assets/work/caseit/card.jpg'); }
 
 .project-card__img {
   width: 100%;
@@ -358,56 +345,33 @@ a {
   transform: scale(1.04);
 }
 
-/* Shared overlay: title + category pill (used to be a "View" button) */
+/* Shared overlay: plain white title + category text over the cover, no box */
 
 .project-card-overlay {
   position: absolute;
-  left: 10px;
-  right: 10px;
-  bottom: 10px;
+  left: 20px;
+  right: 20px;
+  bottom: 18px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-between;
   gap: 12px;
-  padding: 9px 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
-  transition: background-color 0.2s ease;
+  color: #fff;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.18);
 }
 
 .project-card-title {
   margin: 0;
   font-size: 17px;
   font-weight: 700;
-  color: #111;
+  color: #fff;
 }
 
-/*
-  Category pill now lives where the "View" button used to sit, in
-  place of it. Outline-only, in the same dark ink as the title
-  (#111) but faded rather than solid black, so it reads as a
-  secondary/quiet label sitting on the light overlay. Hover doesn't
-  swap its color — it just eases the fill to a slightly higher
-  opacity, a subtler "this is clickable" cue than the old green
-  flash.
-*/
 .project-card-category {
   flex-shrink: 0;
-  padding: 9px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(17, 17, 17, 0.55);
-  background: rgba(17, 17, 17, 0.05);
-  color: rgba(17, 17, 17, 0.7);
-  font-size: 13px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
   font-weight: 500;
-  transition: background-color 0.2s ease;
-}
-
-.project-card:hover .project-card-category {
-  background-color: rgba(17, 17, 17, 0.12);
 }
 
 /* ---------- Gallery ---------- */
@@ -422,45 +386,6 @@ a {
 .gallery--simple .project-card {
   flex: 1 0 0;
   height: 349px;
-}
-
-/*
-  Kirk's Bike Shop swaps in a cover shot cropped specifically for
-  each breakpoint's card box (see the medium/small overrides below)
-  instead of relying on one image stretched by background-size:120%
-  across every aspect ratio.
-*/
-.project-card--kirks {
-  background-image: url('assets/work/kirks/kirks-1.jpg');
-}
-
-/*
-  The logo in this cover is centered in the source image, but the
-  overlay pill covers the bottom 63px (53px pill + 10px gap) of every
-  card, so a plain 50% would center it on the full card height and
-  it'd read as sitting low in the visible area above the pill. This
-  --rest-y shifts the resting point up to center it specifically in
-  that visible area instead: 50% - (63px / 2) / cardHeight, recomputed
-  per breakpoint below since card heights change.
-*/
-.project-card--nwe {
-  background-image: url('assets/work/new-west-elite/nwe-1.jpg');
-  --rest-y: 41%; /* 349px featured card at the large breakpoint */
-}
-
-.project-card--zpro {
-  background-image: url('assets/work/zpro/zpro-1.jpg');
-  --rest-y: 41%; /* 349px simple card at the large breakpoint */
-}
-
-.project-card--ax {
-  background-image: url('assets/work/ax-performance/ax-1.jpg');
-  --rest-y: 41%; /* 349px simple card at the large breakpoint */
-}
-
-.project-card--abwiches {
-  background-image: url('assets/work/abwiches/abwiches-1.jpg');
-  --rest-y: 41%; /* 349px simple card at the large breakpoint */
 }
 
 /* ---------- About ---------- */
@@ -1070,33 +995,13 @@ a {
   }
 
   .gallery--simple .project-card-category {
-    padding: 7px 11px;
     font-size: 12px;
   }
 
-  .project-card--kirks {
-    background-image: url('assets/work/kirks/kirks-2.jpg');
-  }
 
-  .project-card--nwe {
-    background-image: url('assets/work/new-west-elite/nwe-2.jpg');
-    --rest-y: 37%; /* 240px featured card at the medium breakpoint */
-  }
 
-  .project-card--zpro {
-    background-image: url('assets/work/zpro/zpro-2.jpg');
-    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
-  }
 
-  .project-card--ax {
-    background-image: url('assets/work/ax-performance/ax-2.jpg');
-    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
-  }
 
-  .project-card--abwiches {
-    background-image: url('assets/work/abwiches/abwiches-2.jpg');
-    --rest-y: 37%; /* 240px simple card at the medium breakpoint */
-  }
 
   .section-heading {
     font-size: 26px;
@@ -1328,29 +1233,10 @@ a {
     height: 250px;
   }
 
-  .project-card--kirks {
-    background-image: url('assets/work/kirks/kirks-3.jpg');
-  }
 
-  .project-card--nwe {
-    background-image: url('assets/work/new-west-elite/nwe-3.jpg');
-    --rest-y: 37%; /* 250px card at the small breakpoint */
-  }
 
-  .project-card--zpro {
-    background-image: url('assets/work/zpro/zpro-3.jpg');
-    --rest-y: 37%; /* 250px card at the small breakpoint */
-  }
 
-  .project-card--ax {
-    background-image: url('assets/work/ax-performance/ax-3.jpg');
-    --rest-y: 37%; /* 250px card at the small breakpoint */
-  }
 
-  .project-card--abwiches {
-    background-image: url('assets/work/abwiches/abwiches-3.jpg');
-    --rest-y: 37%; /* 250px card at the small breakpoint */
-  }
 
   .section-heading {
     font-size: 22px;
